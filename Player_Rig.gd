@@ -6,7 +6,8 @@ var noKeyPress = false;
 export (int) var speed = 150
 
 func _ready():
-	pass
+	set_contact_monitor(true)
+	connect("body_shape_entered", self, "_on_CharacterRig_body_shape_entered")
 	
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 	if Input.is_key_pressed(KEY_RIGHT):
@@ -25,3 +26,12 @@ func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 
 	if abs(get_linear_velocity().length()) < 149 and abs(get_linear_velocity().length()) > 0:
 		set_linear_velocity(Vector2(0,0))
+
+
+
+
+func _on_CharacterRig_body_shape_entered(body_id, body, body_shape, local_shape):
+	print(body.get_name())
+	if "PhysParticle" in body.get_name():
+		body.queue_free()
+	
