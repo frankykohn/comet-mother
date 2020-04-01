@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/key press 3.wav-b6bc1df41ebec4977f43a58e2a97febf.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/key press 3.wav"
+dest_files=[ "res://.import/key press 3.wav-b6bc1df41ebec4977f43a58e2a97febf.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://return_to_title.gd" type="Script" id=1]
+[ext_resource path="res://Assets/fonts/Teko-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/images/env/Level_ExtremeBackground_01.png" type="Texture" id=3]
+[ext_resource path="res://assets/fonts/Teko-Regular.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+outline_size = 2
+outline_color = Color( 0.607843, 0.0941176, 0.0941176, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+font_data = ExtResource( 4 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level_ExtremeBackground_01" type="Sprite" parent="."]
+position = Vector2( 817.455, 553.735 )
+texture = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 60.0
+margin_top = 60.0
+margin_right = -60.0
+margin_bottom = -60.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+margin_right = 1800.0
+margin_bottom = 87.0
+custom_fonts/font = SubResource( 1 )
+text = "How To Play"
+align = 1
+
+[node name="Description" type="Label" parent="VBoxContainer"]
+margin_top = 91.0
+margin_right = 1800.0
+margin_bottom = 188.0
+custom_fonts/font = SubResource( 2 )
+text = "The hive has been on a long journey to a faraway asteroid belt to harvest a magical nectar that might heal their polluted planet. On their return journey hive mothership is hit by flying space debris and attacked by swarms of foul, haunting beings which emerge from the asteroid belt."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Description2" type="Label" parent="VBoxContainer"]
+margin_top = 192.0
+margin_right = 1800.0
+margin_bottom = 339.0
+custom_fonts/font = SubResource( 2 )
+text = "W - Up
+A - Left        D -Right
+S - Down "
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Button" parent="VBoxContainer"]
+margin_top = 343.0
+margin_right = 1800.0
+margin_bottom = 418.0
+custom_fonts/font = SubResource( 3 )
+text = "Back"
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_Back_pressed"]

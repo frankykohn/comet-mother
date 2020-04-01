@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/nectar_bubble.png" type="Texture" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 8.16778
+
+[node name="PhysParticle" type="RigidBody2D"]
+modulate = Color( 0.819608, 0.807843, 0.0941176, 0.458824 )
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="NectarBubble" type="Sprite" parent="CollisionShape2D"]
+position = Vector2( -0.656815, -0.547342 )
+scale = Vector2( 0.410327, 0.403029 )
+texture = ExtResource( 1 )
