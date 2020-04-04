@@ -3,16 +3,33 @@ extends RigidBody2D
 var velocity = Vector2()
 var noKeyPress = false;
 var look_direction = Vector2(1,0)
-
+var soundFxArray = []
+var files = []
+onready var player = $AudioStreamPlayer
 export (int) var speed = 150
-
+var rand_generate = RandomNumberGenerator.new()
+var sound = AudioStreamPlayer.new()
 func _ready():
+	add_child(sound)
 	set_contact_monitor(true)
-	connect("body_shape_entered", self, "_on_CharacterRig_body_shape_entered")
+	#connect("body_shape_entered", self, "_on_CharacterRig_body_shape_entered")
+	get_viewport().audio_listener_enable_2d = true
+	var dir = Directory.new()
+	if dir.open("res://src/World/Levels/assets") == OK:
+		dir.list_dir_begin()
+		var file = dir.get_next()
+		while (file != ""):
+			if file.begins_with("key press") and file.ends_with("wav"):
+				soundFxArray.append(load("res://src/World/Levels/assets/" + file))
+			file = dir.get_next()
+		#print(soundFxArray.size())
+	
 	
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 	if Input.is_key_pressed(KEY_RIGHT):
 		apply_central_impulse(Vector2.RIGHT * speed)
+		
+		
 	if Input.is_key_pressed(KEY_LEFT):
 		apply_central_impulse(Vector2.LEFT * speed)
 	if Input.is_key_pressed(KEY_UP):
@@ -30,7 +47,13 @@ func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 
 func _on_CharacterRig_body_shape_entered(body_id, body, body_shape, local_shape):
 	#print(body.get_name())
-	if "PhysParticle" in body.get_name():
+	randomize()
+	var randNum = rand_generate.randi_range(0, soundFxArray.size() - 1)
+	sound.set_stream(soundFxArray[randNum])
+	sound.play()
+	
+	#print("reached after sound.play()")
+	if "NectarBubble" in body.get_name():
 		body.queue_free()
 		
 		

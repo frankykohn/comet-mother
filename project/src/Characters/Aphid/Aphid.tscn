@@ -4,8 +4,6 @@
 [ext_resource path="res://addons/RigidBodyParticles2D/RigidBodyParticles2D.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Collectables/NectarMovable/NectarMovable.tscn" type="PackedScene" id=4]
 
-
-
 [sub_resource type="CircleShape2D" id=1]
 radius = 3.0
 

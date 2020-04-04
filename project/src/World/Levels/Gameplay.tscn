@@ -2081,4 +2081,3 @@ contact_monitor = true
 [connection signal="timeout" from="Enemy/EnemyChangePathTimer" to="Enemy" method="_on_EnemyChangePathTimer_timeout"]
 [connection signal="pressed" from="End/PlayAgain" to="." method="_on_PlayAgain_pressed"]
 [connection signal="pressed" from="End/MainMenu" to="." method="_on_MainMenu_pressed"]
-[connection signal="body_shape_entered" from="CharacterRig" to="CharacterRig" method="_on_CharacterRig_body_shape_entered"]

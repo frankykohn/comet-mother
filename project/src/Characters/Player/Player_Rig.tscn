@@ -477,3 +477,4 @@ editor_draw_drag_margin = true
 position = Vector2( 2.19174, -4.38349 )
 rotation = 2.0944
 shape = SubResource( 3 )
+[connection signal="body_shape_entered" from="." to="." method="_on_CharacterRig_body_shape_entered"]
