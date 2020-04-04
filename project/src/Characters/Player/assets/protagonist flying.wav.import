@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/protagonist flying.wav-ab779be1533b163e24dca4f34fe5517c.sample"
+
+[deps]
+
+source_file="res://src/Characters/Player/assets/protagonist flying.wav"
+dest_files=[ "res://.import/protagonist flying.wav-ab779be1533b163e24dca4f34fe5517c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

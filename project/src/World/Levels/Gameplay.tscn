@@ -1,0 +1,2084 @@
+[gd_scene load_steps=38 format=2]
+
+[ext_resource path="res://src/World/Levels/assets/images/shroom.png" type="Texture" id=1]
+[ext_resource path="res://src/World/Levels/assets/images/ff.png" type="Texture" id=2]
+[ext_resource path="res://src/World/Levels/SoundTriggers.gd" type="Script" id=3]
+[ext_resource path="res://src/World/Levels/assets/images/foliage.png" type="Texture" id=4]
+[ext_resource path="res://src/World/Levels/assets/images/Level_ExtremeBackground_01.png" type="Texture" id=5]
+[ext_resource path="res://src/World/Levels/assets/images/rocks02.png" type="Texture" id=6]
+[ext_resource path="res://src/World/Levels/assets/images/homeHive.png" type="Texture" id=7]
+[ext_resource path="res://src/Characters/Mother/Mother_Rig.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Characters/Player/Player_Rig.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/World/Levels/assets/images/rocks03.png" type="Texture" id=10]
+[ext_resource path="res://src/World/Levels/assets/images/rocks04.png" type="Texture" id=11]
+[ext_resource path="res://src/Characters/Aphid/Assets/spaceAphid_03.png" type="Texture" id=12]
+[ext_resource path="res://src/World/Levels/assets/images/rock_foreground.png" type="Texture" id=13]
+[ext_resource path="res://src/World/Levels/assets/images/atmosphereClouds.png" type="Texture" id=14]
+[ext_resource path="res://src/Characters/Enemies/Moth/EnemyCarrierMovement.gd" type="Script" id=15]
+[ext_resource path="res://src/Characters/Enemies/Moth/Enemy_Carrier_Rig.tscn" type="PackedScene" id=16]
+[ext_resource path="res://src/Characters/Enemies/Moth/assets/enemy flying.wav" type="AudioStream" id=17]
+[ext_resource path="res://src/UI/Fonts/Teko-Regular.ttf" type="DynamicFontData" id=18]
+[ext_resource path="res://src/Collectables/NectarMovable/assets/nectarPickup.png" type="Texture" id=19]
+[ext_resource path="res://src/Characters/Mother/Mother.gd" type="Script" id=20]
+[ext_resource path="res://src/World/Levels/assets/key press 3.wav" type="AudioStream" id=21]
+[ext_resource path="res://src/World/Levels/assets/key press 1.wav" type="AudioStream" id=22]
+[ext_resource path="res://src/World/Levels/assets/images/Level_Background_01.png" type="Texture" id=23]
+[ext_resource path="res://src/Characters/Enemies/Critter/CritterEmitter.tscn" type="PackedScene" id=24]
+[ext_resource path="res://src/World/Levels/assets/gameplay music v2.wav" type="AudioStream" id=25]
+[ext_resource path="res://src/World/Levels/assets/key press 2.wav" type="AudioStream" id=26]
+[ext_resource path="res://src/Characters/Aphid/Aphid.tscn" type="PackedScene" id=27]
+[ext_resource path="res://src/Collectables/NectarMovable/NectarMovable.tscn" type="PackedScene" id=29]
+[ext_resource path="res://addons/RigidBodyParticles2D/RigidBodyParticles2D.tscn" type="PackedScene" id=30]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 3.77112, -2.24115, 0, 0, 0, 0, 3348.57, 4.95892 )
+}
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -0.599304, -2.39978, -339.392, -52.1198, 339.392, 52.1198, 632.002, 152.001, 0, 0, 0, 0, 1823.4, -18.7999 )
+}
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 31.4007
+height = 36.8425
+
+[sub_resource type="ParticlesMaterial" id=4]
+lifetime_randomness = 0.37
+emission_shape = 1
+emission_sphere_radius = 112.74
+flag_disable_z = true
+direction = Vector3( -3, 0.1, 0 )
+spread = 26.68
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 21.74
+angular_velocity = 1.0
+angular_velocity_random = 0.07
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = 1.59
+radial_accel_random = 0.32
+
+[sub_resource type="DynamicFont" id=5]
+size = 40
+font_data = ExtResource( 18 )
+
+[sub_resource type="CircleShape2D" id=6]
+
+[sub_resource type="CircleShape2D" id=7]
+radius = 3.0
+
+[sub_resource type="DynamicFont" id=8]
+size = 24
+font_data = ExtResource( 18 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Borders" type="Node2D" parent="."]
+
+[node name="Cluster01KinematicBody2D" type="KinematicBody2D" parent="Borders"]
+position = Vector2( -27.3979, 71.9206 )
+scale = Vector2( 0.462596, 0.867054 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Borders/Cluster01KinematicBody2D"]
+position = Vector2( 90.6144, -135.211 )
+rotation = -2.4504
+scale = Vector2( 1, -1 )
+polygon = PoolVector2Array( 101.601, -23.9998, -8.04279, 72.7663, -71.8362, 44.8202, -194.518, 76.7965, -194.092, -84.9989, -280.199, -164.815, -428.732, -82.8328, -495.257, -103.726, -369.035, -260.041, -725.732, -331.656, -778.734, -425.172, -903.391, -432.079, -848.77, -636.445, -1125.13, -873.171, -1323.74, -835.719, -1358.66, -1097.42, -1524.28, -1015.67, -1621.36, -1001.25, -1494, -1181.45, -1908.46, -1306.73, -1997.79, -1273.96, -2127.17, -1278.76, -2130.02, -1463.36, -2012.13, -1605.85, -2139.77, -1618.12, -2409.36, -1716.7, -2483.9, -1836.15, -2788.7, -1972.76, -2983.04, -1995.74, -2897.55, -2249.5, -3134.7, -2468.79, -3103.98, -2659.79, -2731.75, -2605.72, 100.109, -256.807 )
+
+[node name="rock_foreground" type="Sprite" parent="Borders/Cluster01KinematicBody2D"]
+position = Vector2( 797.698, -75.0122 )
+rotation = 0.427881
+scale = Vector2( 1.1035, 1.23861 )
+texture = ExtResource( 13 )
+
+[node name="rocks02" type="Sprite" parent="Borders/Cluster01KinematicBody2D"]
+position = Vector2( 139.21, -232.269 )
+rotation = -1.48299
+scale = Vector2( 1.24452, 1.65434 )
+texture = ExtResource( 6 )
+
+[node name="rocks05" type="Sprite" parent="Borders/Cluster01KinematicBody2D"]
+position = Vector2( 498.813, -139.8 )
+rotation = 1.56862
+scale = Vector2( 1.24452, 1.65434 )
+texture = ExtResource( 6 )
+
+[node name="rocks03" type="Sprite" parent="Borders/Cluster01KinematicBody2D"]
+position = Vector2( 1074.11, -84.8234 )
+rotation = -1.49019
+texture = ExtResource( 10 )
+
+[node name="rocks04" type="Sprite" parent="Borders/Cluster01KinematicBody2D"]
+position = Vector2( 1323.04, -181.158 )
+texture = ExtResource( 11 )
+
+[node name="rock_foreground2" type="Sprite" parent="Borders/Cluster01KinematicBody2D"]
+position = Vector2( 2250.41, -78.1031 )
+rotation = 0.427881
+scale = Vector2( 1.1035, 1.23861 )
+texture = ExtResource( 13 )
+
+[node name="rocks09" type="Sprite" parent="Borders/Cluster01KinematicBody2D"]
+position = Vector2( 1591.92, -235.36 )
+rotation = -1.48299
+scale = Vector2( 1.24452, 1.65434 )
+texture = ExtResource( 6 )
+
+[node name="rocks08" type="Sprite" parent="Borders/Cluster01KinematicBody2D"]
+position = Vector2( 1951.52, -142.891 )
+rotation = 1.56862
+scale = Vector2( 1.24452, 1.65434 )
+texture = ExtResource( 6 )
+
+[node name="rocks07" type="Sprite" parent="Borders/Cluster01KinematicBody2D"]
+position = Vector2( 2526.82, -87.9143 )
+rotation = -1.6045
+scale = Vector2( 1.32464, 1.52482 )
+texture = ExtResource( 10 )
+
+[node name="rocks06" type="Sprite" parent="Borders/Cluster01KinematicBody2D"]
+position = Vector2( 2775.75, -184.249 )
+texture = ExtResource( 11 )
+
+[node name="rock_foreground3" type="Sprite" parent="Borders/Cluster01KinematicBody2D"]
+position = Vector2( 3400.42, 1.20776 )
+rotation = 0.427881
+scale = Vector2( 1.1035, 1.23861 )
+texture = ExtResource( 13 )
+
+[node name="rocks13" type="Sprite" parent="Borders/Cluster01KinematicBody2D"]
+position = Vector2( 2741.93, -156.049 )
+rotation = -2.91039
+scale = Vector2( 1.24452, 1.65434 )
+texture = ExtResource( 6 )
+
+[node name="rocks12" type="Sprite" parent="Borders/Cluster01KinematicBody2D"]
+position = Vector2( 3101.53, -63.5802 )
+rotation = 0.430125
+scale = Vector2( 1.24452, 1.65434 )
+texture = ExtResource( 6 )
+
+[node name="rocks11" type="Sprite" parent="Borders/Cluster01KinematicBody2D"]
+position = Vector2( 3676.83, -8.60339 )
+rotation = -1.49019
+texture = ExtResource( 10 )
+
+[node name="rocks10" type="Sprite" parent="Borders/Cluster01KinematicBody2D"]
+position = Vector2( 3925.76, -104.938 )
+texture = ExtResource( 11 )
+
+[node name="Cluster01KinematicBody2D4" type="KinematicBody2D" parent="Borders"]
+position = Vector2( 1863.22, 59.8783 )
+scale = Vector2( 0.554749, 0.867054 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Borders/Cluster01KinematicBody2D4"]
+position = Vector2( 90.6144, -135.211 )
+rotation = -2.4504
+scale = Vector2( 1, -1 )
+polygon = PoolVector2Array( 101.601, -23.9998, -8.04279, 72.7663, -71.8362, 44.8202, -194.518, 76.7965, -194.092, -84.9989, -280.199, -164.815, -428.732, -82.8328, -495.257, -103.726, -369.035, -260.041, -725.732, -331.656, -778.734, -425.172, -903.391, -432.079, -848.77, -636.445, -1125.13, -873.171, -1323.74, -835.719, -1358.66, -1097.42, -1524.28, -1015.67, -1621.36, -1001.25, -1494, -1181.45, -1908.46, -1306.73, -1997.79, -1273.96, -2127.17, -1278.76, -2130.02, -1463.36, -2012.13, -1605.85, -2139.77, -1618.12, -2409.36, -1716.7, -2483.9, -1836.15, -2788.7, -1972.76, -2983.04, -1995.74, -2897.55, -2249.5, -3134.7, -2468.79, -3103.98, -2659.79, -2731.75, -2605.72, 100.109, -256.807 )
+
+[node name="rock_foreground" type="Sprite" parent="Borders/Cluster01KinematicBody2D4"]
+position = Vector2( 797.698, -75.0122 )
+rotation = 0.427881
+scale = Vector2( 1.1035, 1.23861 )
+texture = ExtResource( 13 )
+
+[node name="rocks02" type="Sprite" parent="Borders/Cluster01KinematicBody2D4"]
+position = Vector2( 139.21, -232.269 )
+rotation = -1.48299
+scale = Vector2( 1.24452, 1.65434 )
+texture = ExtResource( 6 )
+
+[node name="rocks05" type="Sprite" parent="Borders/Cluster01KinematicBody2D4"]
+position = Vector2( 498.813, -139.8 )
+rotation = 1.56862
+scale = Vector2( 1.24452, 1.65434 )
+texture = ExtResource( 6 )
+
+[node name="rocks03" type="Sprite" parent="Borders/Cluster01KinematicBody2D4"]
+position = Vector2( 1074.11, -84.8234 )
+rotation = -1.49019
+texture = ExtResource( 10 )
+
+[node name="rocks04" type="Sprite" parent="Borders/Cluster01KinematicBody2D4"]
+position = Vector2( 1323.04, -181.158 )
+texture = ExtResource( 11 )
+
+[node name="rock_foreground2" type="Sprite" parent="Borders/Cluster01KinematicBody2D4"]
+position = Vector2( 2250.41, -78.1031 )
+rotation = 0.427881
+scale = Vector2( 1.1035, 1.23861 )
+texture = ExtResource( 13 )
+
+[node name="rocks09" type="Sprite" parent="Borders/Cluster01KinematicBody2D4"]
+position = Vector2( 1591.92, -235.36 )
+rotation = -1.48299
+scale = Vector2( 1.24452, 1.65434 )
+texture = ExtResource( 6 )
+
+[node name="rocks08" type="Sprite" parent="Borders/Cluster01KinematicBody2D4"]
+position = Vector2( 1951.52, -142.891 )
+rotation = 1.56862
+scale = Vector2( 1.24452, 1.65434 )
+texture = ExtResource( 6 )
+
+[node name="rocks07" type="Sprite" parent="Borders/Cluster01KinematicBody2D4"]
+position = Vector2( 2526.82, -87.9143 )
+rotation = -1.6045
+scale = Vector2( 1.32464, 1.52482 )
+texture = ExtResource( 10 )
+
+[node name="rocks06" type="Sprite" parent="Borders/Cluster01KinematicBody2D4"]
+position = Vector2( 2775.75, -184.249 )
+texture = ExtResource( 11 )
+
+[node name="rock_foreground3" type="Sprite" parent="Borders/Cluster01KinematicBody2D4"]
+position = Vector2( 3400.42, 1.20776 )
+rotation = 0.427881
+scale = Vector2( 1.1035, 1.23861 )
+texture = ExtResource( 13 )
+
+[node name="rocks13" type="Sprite" parent="Borders/Cluster01KinematicBody2D4"]
+position = Vector2( 2741.93, -156.049 )
+rotation = -2.91039
+scale = Vector2( 1.24452, 1.65434 )
+texture = ExtResource( 6 )
+
+[node name="rocks12" type="Sprite" parent="Borders/Cluster01KinematicBody2D4"]
+position = Vector2( 3101.53, -63.5802 )
+rotation = 0.430125
+scale = Vector2( 1.24452, 1.65434 )
+texture = ExtResource( 6 )
+
+[node name="rocks11" type="Sprite" parent="Borders/Cluster01KinematicBody2D4"]
+position = Vector2( 3676.83, -8.60339 )
+rotation = -1.49019
+texture = ExtResource( 10 )
+
+[node name="rocks10" type="Sprite" parent="Borders/Cluster01KinematicBody2D4"]
+position = Vector2( 3925.76, -104.938 )
+texture = ExtResource( 11 )
+
+[node name="Cluster01KinematicBody2D2" type="KinematicBody2D" parent="Borders"]
+position = Vector2( 4274.48, 881.156 )
+rotation = -3.13234
+scale = Vector2( 0.678533, 0.760381 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Borders/Cluster01KinematicBody2D2"]
+position = Vector2( 90.6144, -135.211 )
+rotation = -2.4504
+scale = Vector2( 1, -1 )
+polygon = PoolVector2Array( 101.601, -23.9998, -8.04279, 72.7663, -71.8362, 44.8202, -194.518, 76.7965, -194.092, -84.9989, -280.199, -164.815, -428.732, -82.8328, -495.257, -103.726, -369.035, -260.041, -725.732, -331.656, -778.734, -425.172, -903.391, -432.079, -848.77, -636.445, -1125.13, -873.171, -1323.74, -835.719, -1358.66, -1097.42, -1524.28, -1015.67, -1621.36, -1001.25, -1494, -1181.45, -1908.46, -1306.73, -1997.79, -1273.96, -2127.17, -1278.76, -2130.02, -1463.36, -2012.13, -1605.85, -2139.77, -1618.12, -2409.36, -1716.7, -2483.9, -1836.15, -2788.7, -1972.76, -2983.04, -1995.74, -2897.55, -2249.5, -3134.7, -2468.79, -3103.98, -2659.79, -2731.75, -2605.72, 100.109, -256.807 )
+
+[node name="rock_foreground" type="Sprite" parent="Borders/Cluster01KinematicBody2D2"]
+position = Vector2( 797.698, -75.0122 )
+rotation = 0.427881
+scale = Vector2( 1.1035, 1.23861 )
+texture = ExtResource( 13 )
+
+[node name="rocks02" type="Sprite" parent="Borders/Cluster01KinematicBody2D2"]
+position = Vector2( 139.21, -232.269 )
+rotation = -1.48299
+scale = Vector2( 1.24452, 1.65434 )
+texture = ExtResource( 6 )
+
+[node name="rocks05" type="Sprite" parent="Borders/Cluster01KinematicBody2D2"]
+position = Vector2( 498.813, -139.8 )
+rotation = 1.56862
+scale = Vector2( 1.24452, 1.65434 )
+texture = ExtResource( 6 )
+
+[node name="rocks03" type="Sprite" parent="Borders/Cluster01KinematicBody2D2"]
+position = Vector2( 1074.11, -84.8234 )
+rotation = -1.49019
+texture = ExtResource( 10 )
+
+[node name="rocks04" type="Sprite" parent="Borders/Cluster01KinematicBody2D2"]
+position = Vector2( 1323.04, -181.158 )
+texture = ExtResource( 11 )
+
+[node name="rock_foreground2" type="Sprite" parent="Borders/Cluster01KinematicBody2D2"]
+position = Vector2( 2250.41, -78.1031 )
+rotation = 0.427881
+scale = Vector2( 1.1035, 1.23861 )
+texture = ExtResource( 13 )
+
+[node name="rocks09" type="Sprite" parent="Borders/Cluster01KinematicBody2D2"]
+position = Vector2( 1591.92, -235.36 )
+rotation = -1.48299
+scale = Vector2( 1.24452, 1.65434 )
+texture = ExtResource( 6 )
+
+[node name="rocks08" type="Sprite" parent="Borders/Cluster01KinematicBody2D2"]
+position = Vector2( 1951.52, -142.891 )
+rotation = 1.56862
+scale = Vector2( 1.24452, 1.65434 )
+texture = ExtResource( 6 )
+
+[node name="rocks07" type="Sprite" parent="Borders/Cluster01KinematicBody2D2"]
+position = Vector2( 2526.82, -87.9143 )
+rotation = -1.6045
+scale = Vector2( 1.32464, 1.52482 )
+texture = ExtResource( 10 )
+
+[node name="rocks06" type="Sprite" parent="Borders/Cluster01KinematicBody2D2"]
+position = Vector2( 2775.75, -184.249 )
+texture = ExtResource( 11 )
+
+[node name="rock_foreground3" type="Sprite" parent="Borders/Cluster01KinematicBody2D2"]
+position = Vector2( 3400.42, 1.20776 )
+rotation = 0.427881
+scale = Vector2( 1.1035, 1.23861 )
+texture = ExtResource( 13 )
+
+[node name="rocks13" type="Sprite" parent="Borders/Cluster01KinematicBody2D2"]
+position = Vector2( 2741.93, -156.049 )
+rotation = -2.91039
+scale = Vector2( 1.24452, 1.65434 )
+texture = ExtResource( 6 )
+
+[node name="rocks12" type="Sprite" parent="Borders/Cluster01KinematicBody2D2"]
+position = Vector2( 3101.53, -63.5802 )
+rotation = 0.430125
+scale = Vector2( 1.24452, 1.65434 )
+texture = ExtResource( 6 )
+
+[node name="rocks11" type="Sprite" parent="Borders/Cluster01KinematicBody2D2"]
+position = Vector2( 3676.83, -8.60339 )
+rotation = -1.49019
+texture = ExtResource( 10 )
+
+[node name="rocks10" type="Sprite" parent="Borders/Cluster01KinematicBody2D2"]
+position = Vector2( 3925.76, -104.938 )
+texture = ExtResource( 11 )
+
+[node name="Cluster01KinematicBody2D3" type="KinematicBody2D" parent="Borders"]
+position = Vector2( 2480.18, 913.09 )
+rotation = -3.13234
+scale = Vector2( 0.678533, 0.760381 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Borders/Cluster01KinematicBody2D3"]
+position = Vector2( 83.8472, -142.568 )
+rotation = -2.4504
+scale = Vector2( 1, -1 )
+polygon = PoolVector2Array( 101.601, -23.9998, -8.04279, 72.7663, -71.8362, 44.8202, -194.518, 76.7965, -194.092, -84.9989, -280.199, -164.815, -428.732, -82.8328, -495.257, -103.726, -369.035, -260.041, -725.732, -331.656, -778.734, -425.172, -903.391, -432.079, -848.77, -636.445, -1125.13, -873.171, -1323.74, -835.719, -1358.66, -1097.42, -1524.28, -1015.67, -1621.36, -1001.25, -1494, -1181.45, -1908.46, -1306.73, -1997.79, -1273.96, -2127.17, -1278.76, -2130.02, -1463.36, -2012.13, -1605.85, -2139.77, -1618.12, -2409.36, -1716.7, -2483.9, -1836.15, -2788.7, -1972.76, -2983.04, -1995.74, -2897.55, -2249.5, -3134.7, -2468.79, -3103.98, -2659.79, -2731.75, -2605.72, 100.109, -256.807 )
+
+[node name="rock_foreground" type="Sprite" parent="Borders/Cluster01KinematicBody2D3"]
+position = Vector2( 797.698, -75.0122 )
+rotation = 0.427881
+scale = Vector2( 1.1035, 1.23861 )
+texture = ExtResource( 13 )
+
+[node name="rocks02" type="Sprite" parent="Borders/Cluster01KinematicBody2D3"]
+position = Vector2( 139.21, -232.269 )
+rotation = -1.48299
+scale = Vector2( 1.24452, 1.65434 )
+texture = ExtResource( 6 )
+
+[node name="rocks05" type="Sprite" parent="Borders/Cluster01KinematicBody2D3"]
+position = Vector2( 498.813, -139.8 )
+rotation = 1.56862
+scale = Vector2( 1.24452, 1.65434 )
+texture = ExtResource( 6 )
+
+[node name="rocks03" type="Sprite" parent="Borders/Cluster01KinematicBody2D3"]
+position = Vector2( 1074.11, -84.8234 )
+rotation = -1.49019
+texture = ExtResource( 10 )
+
+[node name="rocks04" type="Sprite" parent="Borders/Cluster01KinematicBody2D3"]
+position = Vector2( 1323.04, -181.158 )
+texture = ExtResource( 11 )
+
+[node name="rock_foreground2" type="Sprite" parent="Borders/Cluster01KinematicBody2D3"]
+position = Vector2( 2250.41, -78.1031 )
+rotation = 0.427881
+scale = Vector2( 1.1035, 1.23861 )
+texture = ExtResource( 13 )
+
+[node name="rocks09" type="Sprite" parent="Borders/Cluster01KinematicBody2D3"]
+position = Vector2( 1591.92, -235.36 )
+rotation = -1.48299
+scale = Vector2( 1.24452, 1.65434 )
+texture = ExtResource( 6 )
+
+[node name="rocks08" type="Sprite" parent="Borders/Cluster01KinematicBody2D3"]
+position = Vector2( 1951.52, -142.891 )
+rotation = 1.56862
+scale = Vector2( 1.24452, 1.65434 )
+texture = ExtResource( 6 )
+
+[node name="rocks07" type="Sprite" parent="Borders/Cluster01KinematicBody2D3"]
+position = Vector2( 2526.82, -87.9143 )
+rotation = -1.6045
+scale = Vector2( 1.32464, 1.52482 )
+texture = ExtResource( 10 )
+
+[node name="rocks06" type="Sprite" parent="Borders/Cluster01KinematicBody2D3"]
+position = Vector2( 2775.75, -184.249 )
+texture = ExtResource( 11 )
+
+[node name="rock_foreground3" type="Sprite" parent="Borders/Cluster01KinematicBody2D3"]
+position = Vector2( 3400.42, 1.20776 )
+rotation = 0.427881
+scale = Vector2( 1.1035, 1.23861 )
+texture = ExtResource( 13 )
+
+[node name="rocks13" type="Sprite" parent="Borders/Cluster01KinematicBody2D3"]
+position = Vector2( 2741.93, -156.049 )
+rotation = -2.91039
+scale = Vector2( 1.24452, 1.65434 )
+texture = ExtResource( 6 )
+
+[node name="rocks12" type="Sprite" parent="Borders/Cluster01KinematicBody2D3"]
+position = Vector2( 3101.53, -63.5802 )
+rotation = 0.430125
+scale = Vector2( 1.24452, 1.65434 )
+texture = ExtResource( 6 )
+
+[node name="rocks11" type="Sprite" parent="Borders/Cluster01KinematicBody2D3"]
+position = Vector2( 3676.83, -8.60339 )
+rotation = -1.49019
+texture = ExtResource( 10 )
+
+[node name="rocks10" type="Sprite" parent="Borders/Cluster01KinematicBody2D3"]
+position = Vector2( 3925.76, -104.938 )
+texture = ExtResource( 11 )
+
+[node name="JSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
+
+[node name="KSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 26 )
+
+[node name="LSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 21 )
+
+[node name="MainMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 25 )
+volume_db = -10.097
+
+[node name="Mother" type="Node2D" parent="."]
+script = ExtResource( 20 )
+
+[node name="Mother_Path" type="Path2D" parent="Mother"]
+position = Vector2( 730.564, 462.497 )
+scale = Vector2( 0.964655, 0.935359 )
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Mother/Mother_Path"]
+position = Vector2( 3.77112, -2.24115 )
+rotation = 0.00215253
+
+[node name="MotherObj" type="KinematicBody2D" parent="Mother/Mother_Path/PathFollow2D"]
+position = Vector2( -3.7663, 2.24927 )
+rotation = -0.00215253
+
+[node name="Mother_Rig" parent="Mother/Mother_Path/PathFollow2D/MotherObj" instance=ExtResource( 8 )]
+position = Vector2( 0.225723, -7.19853 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mother/Mother_Path/PathFollow2D/MotherObj"]
+position = Vector2( -63.6397, -32.5269 )
+polygon = PoolVector2Array( 23.3278, -27.393, 96.1599, -27.393, 126.268, -9.64194, 148.486, 12.9121, 161.921, 34.8324, 193.741, 38.368, 223.439, 32.004, 229.803, 27.0543, 244.653, 27.7614, 253.845, 59.5812, 241.824, 68.7736, 229.803, 65.2381, 191.619, 86.4513, 159.8, 88.5726, 140.001, 95.6437, 114.545, 83.6229, 102.524, 78.6731, 88.4096, 79.3858, 71.4112, 68.7736, 40.2984, 60.2883, 12.7213, 69.4807, 1.40753, 86.4513, -24.7555, 97.0579, -34.655, 97.0579, -55.1611, 92.1082, -118.094, 57.4599, -127.286, 30.5898, -139.091, 0.385712, -122.591, -11.6143, -94.7591, -18.9077, -41.0189, 14.3263 )
+
+[node name="Enemy" type="Node2D" parent="."]
+position = Vector2( -107, -61.0001 )
+script = ExtResource( 15 )
+
+[node name="Path2D" type="Path2D" parent="Enemy"]
+curve = SubResource( 2 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemy/Path2D"]
+position = Vector2( -0.599304, -2.39978 )
+rotate = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Enemy/Path2D/PathFollow2D"]
+scale = Vector2( 0.0492951, 0.0492951 )
+stream = ExtResource( 17 )
+volume_db = -4.289
+
+[node name="Enemy_Carrier" parent="Enemy/Path2D/PathFollow2D" instance=ExtResource( 16 )]
+position = Vector2( 38.2272, 29.9579 )
+scale = Vector2( 0.183193, 0.183193 )
+
+[node name="Critter" parent="Enemy/Path2D/PathFollow2D/Enemy_Carrier" instance=ExtResource( 24 )]
+position = Vector2( 378.683, 182.551 )
+scale = Vector2( 5.45872, 5.45872 )
+
+[node name="Area2D" type="Area2D" parent="Enemy/Path2D/PathFollow2D/Enemy_Carrier"]
+position = Vector2( -37.8721, -38.0105 )
+scale = Vector2( 5.45872, 5.45872 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Path2D/PathFollow2D/Enemy_Carrier/Area2D"]
+position = Vector2( 4, 10 )
+rotation = 0.872665
+shape = SubResource( 3 )
+
+[node name="EnemyChangePathTimer" type="Timer" parent="Enemy"]
+wait_time = 56.0
+
+[node name="ExtremeBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ExtremeBackground"]
+
+[node name="Level_ExtremeBackground_01" type="Sprite" parent="ExtremeBackground/ParallaxLayer"]
+position = Vector2( 2793.4, 273.506 )
+scale = Vector2( 0.907285, 1.26729 )
+texture = ExtResource( 5 )
+
+[node name="Background" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
+
+[node name="Level_Background_01" type="Sprite" parent="Background/ParallaxLayer"]
+position = Vector2( 2356.19, 557.037 )
+scale = Vector2( 0.946993, 1.26699 )
+z_index = 2
+texture = ExtResource( 23 )
+
+[node name="Atmosphere" type="Node" parent="."]
+
+[node name="Particles2D_clouds" type="Particles2D" parent="Atmosphere"]
+modulate = Color( 1, 1, 1, 0.411765 )
+show_behind_parent = true
+position = Vector2( 1781.07, 673.62 )
+amount = 17
+lifetime = 51.0
+speed_scale = 0.97
+randomness = 0.08
+process_material = SubResource( 4 )
+texture = ExtResource( 14 )
+
+[node name="Particles2D_clouds2" type="Particles2D" parent="Atmosphere"]
+modulate = Color( 1, 1, 1, 0.411765 )
+show_behind_parent = true
+position = Vector2( 2707.14, 897.836 )
+amount = 17
+lifetime = 51.0
+speed_scale = 0.97
+randomness = 0.08
+process_material = SubResource( 4 )
+texture = ExtResource( 14 )
+
+[node name="Particles2D_clouds3" type="Particles2D" parent="Atmosphere"]
+modulate = Color( 1, 1, 1, 0.411765 )
+show_behind_parent = true
+position = Vector2( 2244.95, 62.9959 )
+amount = 17
+lifetime = 51.0
+speed_scale = 0.97
+randomness = 0.08
+process_material = SubResource( 4 )
+texture = ExtResource( 14 )
+
+[node name="Particles2D_clouds4" type="Particles2D" parent="Atmosphere"]
+modulate = Color( 1, 1, 1, 0.411765 )
+show_behind_parent = true
+position = Vector2( 4232.25, 908.37 )
+amount = 17
+lifetime = 51.0
+speed_scale = 0.97
+randomness = 0.08
+process_material = SubResource( 4 )
+texture = ExtResource( 14 )
+
+[node name="Resources" type="Label" parent="."]
+margin_left = 102.892
+margin_top = 808.444
+margin_right = 327.892
+margin_bottom = 866.444
+custom_fonts/font = SubResource( 5 )
+text = "Nectar: 0"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RocksPlantsAphidNectar" type="Node2D" parent="."]
+position = Vector2( 1324.7, 603.153 )
+rotation = 3.12588
+scale = Vector2( 0.414228, -0.410918 )
+
+[node name="nectar_02" type="RigidBody2D" parent="."]
+position = Vector2( 677.492, 633.536 )
+input_pickable = true
+
+[node name="Sprite" type="Sprite" parent="nectar_02"]
+texture = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nectar_02"]
+shape = SubResource( 6 )
+
+[node name="ClusterAA01" type="Node2D" parent="."]
+position = Vector2( 547.619, 612.45 )
+rotation = -2.9274e-08
+scale = Vector2( 0.509024, 0.435562 )
+z_index = 3
+
+[node name="aphid_04" type="Sprite" parent="ClusterAA01"]
+position = Vector2( 0, -0.799683 )
+texture = ExtResource( 12 )
+
+[node name="RigidBodyParticles2D" parent="ClusterAA01/aphid_04" instance=ExtResource( 30 )]
+position = Vector2( 35.582, -57.5771 )
+amount = 2
+amount_random = 0.5
+particle_scene = ExtResource( 29 )
+explosiveness = 0.2
+emission_shape = SubResource( 7 )
+lifetime = 20.0
+lifetime_random = 0.3
+impulse = 50.0
+impulse_random = 0.4
+impulse_angle_degrees = -90.0
+impulse_spread_degrees = 50.0
+force_angle_degrees = -90.0
+force_spread_degrees = 20.0
+initial_rotation_degrees = 90.0
+initial_rotation_degrees_random = 0.5
+
+[node name="rock_04" type="KinematicBody2D" parent="ClusterAA01"]
+position = Vector2( 138.461, 80.6935 )
+rotation = 3.14159
+scale = Vector2( 1.96454, -2.29588 )
+z_index = -1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ClusterAA01/rock_04"]
+polygon = PoolVector2Array( 98.8951, -18.6608, 109.136, 14.9888, 73.0483, 16.9395, 59.8811, 46.2, 24.2808, 45.7123, -5.95508, 32.5451, -73.2543, 43.7617, -91.7859, 35.4712, -95.6873, 6.21063, -66.4268, 4.74762, -39.6047, -3.54285, -7.41812, -11.8333, 52.0783, -12.321 )
+
+[node name="Sprite" type="Sprite" parent="ClusterAA01/rock_04"]
+position = Vector2( 1.68445, 2.74991 )
+scale = Vector2( 0.410984, 0.410984 )
+texture = ExtResource( 11 )
+
+[node name="PlantsA" type="Node2D" parent="ClusterAA01"]
+position = Vector2( 90.8168, 35.5587 )
+scale = Vector2( 0.500008, 0.599998 )
+z_index = 5
+
+[node name="plant" type="Sprite" parent="ClusterAA01/PlantsA"]
+position = Vector2( 245.903, -13.411 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterAA01/PlantsA"]
+position = Vector2( 157.378, 7.66357 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterAA01/PlantsA"]
+position = Vector2( 197.56, 4.76849 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.453465 )
+texture = ExtResource( 2 )
+
+[node name="Plants2" type="Node2D" parent="ClusterAA01/PlantsA"]
+position = Vector2( -524.082, 40.8251 )
+rotation = 1.77636e-15
+
+[node name="plant" type="Sprite" parent="ClusterAA01/PlantsA/Plants2"]
+position = Vector2( 245.903, -13.411 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterAA01/PlantsA/Plants2"]
+position = Vector2( 157.378, 7.66357 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterAA01/PlantsA/Plants2"]
+position = Vector2( 197.56, 4.76849 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.453465 )
+texture = ExtResource( 2 )
+
+[node name="Plants3" type="Node2D" parent="ClusterAA01/PlantsA"]
+position = Vector2( -208.663, 124.022 )
+rotation = 1.77636e-15
+
+[node name="plant" type="Sprite" parent="ClusterAA01/PlantsA/Plants3"]
+position = Vector2( 245.903, -13.411 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterAA01/PlantsA/Plants3"]
+position = Vector2( 83.4514, 14.0634 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant4" type="Sprite" parent="ClusterAA01/PlantsA/Plants3"]
+position = Vector2( 142.782, -24.3828 )
+rotation = 0.408526
+scale = Vector2( 1.09045, 1.02157 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterAA01/PlantsA/Plants3"]
+position = Vector2( 197.56, 4.76849 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.453465 )
+texture = ExtResource( 2 )
+
+[node name="plantsRoundBottom" type="Node2D" parent="ClusterAA01"]
+position = Vector2( 52.7105, 93.2469 )
+rotation = -0.420207
+scale = Vector2( 0.595773, 0.363232 )
+z_index = 4
+
+[node name="foliage2" type="Sprite" parent="ClusterAA01/plantsRoundBottom"]
+position = Vector2( 389.937, 278.813 )
+rotation = -0.0134552
+scale = Vector2( 1.01479, 1.23444 )
+texture = ExtResource( 4 )
+
+[node name="foliage" type="Sprite" parent="ClusterAA01/plantsRoundBottom"]
+position = Vector2( 60.6974, -101.075 )
+rotation = 0.24368
+texture = ExtResource( 4 )
+
+[node name="shroom" type="Sprite" parent="ClusterAA01"]
+position = Vector2( 138.429, 21.2969 )
+rotation = -0.0367211
+scale = Vector2( 0.255532, 0.399238 )
+texture = ExtResource( 1 )
+
+[node name="ClusterBB" type="Node2D" parent="."]
+position = Vector2( 997.109, -282.875 )
+
+[node name="aphid_03" type="Sprite" parent="ClusterBB"]
+position = Vector2( 123.867, 613.895 )
+rotation = -2.9274e-08
+scale = Vector2( 0.509024, 0.435562 )
+z_index = 3
+texture = ExtResource( 12 )
+
+[node name="nectar_03" type="RigidBody2D" parent="ClusterBB"]
+position = Vector2( 262, 656 )
+input_pickable = true
+
+[node name="Sprite" type="Sprite" parent="ClusterBB/nectar_03"]
+z_index = 3
+texture = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClusterBB/nectar_03"]
+shape = SubResource( 6 )
+
+[node name="rock_03" type="KinematicBody2D" parent="ClusterBB"]
+position = Vector2( 207, 678.001 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+z_index = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ClusterBB/rock_03"]
+position = Vector2( -0.698364, 0 )
+polygon = PoolVector2Array( 101.601, -23.9998, 100.601, 8.00031, 66.8192, 16.1156, 43.7741, 27.9874, 19.3322, 18.2106, -9.29961, 32.1774, -51.1999, 36.3674, -56.7866, 21.004, -91.0052, 4.2439, -86.1168, -7.62787, -51.428, -9.55377, 52.3507, -16.6256 )
+
+[node name="Sprite" type="Sprite" parent="ClusterBB/rock_03"]
+position = Vector2( 1.68445, 2.74991 )
+scale = Vector2( 0.410984, 0.410984 )
+texture = ExtResource( 10 )
+
+[node name="PlantsA3" type="Node2D" parent="ClusterBB"]
+position = Vector2( 230.573, 667.452 )
+rotation = -0.0314254
+scale = Vector2( 0.254516, 0.261336 )
+z_index = 6
+
+[node name="plant" type="Sprite" parent="ClusterBB/PlantsA3"]
+position = Vector2( 245.903, -13.411 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterBB/PlantsA3"]
+position = Vector2( 157.378, 7.66357 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterBB/PlantsA3"]
+position = Vector2( 197.56, 4.76849 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.453465 )
+texture = ExtResource( 2 )
+
+[node name="Plants2" type="Node2D" parent="ClusterBB/PlantsA3"]
+position = Vector2( -401.78, -125.328 )
+rotation = 1.77636e-15
+
+[node name="plant" type="Sprite" parent="ClusterBB/PlantsA3/Plants2"]
+position = Vector2( 245.903, -13.411 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterBB/PlantsA3/Plants2"]
+position = Vector2( 157.378, 7.66357 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterBB/PlantsA3/Plants2"]
+position = Vector2( 197.56, 4.76849 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.453465 )
+texture = ExtResource( 2 )
+
+[node name="Plants3" type="Node2D" parent="ClusterBB/PlantsA3"]
+position = Vector2( -494.871, 38.1014 )
+rotation = -0.442205
+
+[node name="plant" type="Sprite" parent="ClusterBB/PlantsA3/Plants3"]
+position = Vector2( 245.903, -13.411 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterBB/PlantsA3/Plants3"]
+position = Vector2( 83.4514, 14.0634 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant4" type="Sprite" parent="ClusterBB/PlantsA3/Plants3"]
+position = Vector2( 142.782, -24.3828 )
+rotation = 0.408526
+scale = Vector2( 1.09045, 1.02157 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterBB/PlantsA3/Plants3"]
+position = Vector2( 197.56, 4.76849 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.453465 )
+texture = ExtResource( 2 )
+
+[node name="Node2D" type="Node2D" parent="ClusterBB/PlantsA3"]
+position = Vector2( -247.118, 50.6128 )
+rotation = -0.325661
+scale = Vector2( 1.16145, 0.617631 )
+
+[node name="foliage2" type="Sprite" parent="ClusterBB/PlantsA3/Node2D"]
+position = Vector2( 204.062, 93.2505 )
+rotation = 0.675096
+scale = Vector2( 1.01479, 1.52741 )
+texture = ExtResource( 4 )
+
+[node name="foliage" type="Sprite" parent="ClusterBB/PlantsA3/Node2D"]
+texture = ExtResource( 4 )
+
+[node name="ClusterBB2" type="Node2D" parent="."]
+position = Vector2( 1969.74, -9.96655 )
+
+[node name="aphid_03" type="Sprite" parent="ClusterBB2"]
+position = Vector2( 123.867, 613.895 )
+rotation = -2.9274e-08
+scale = Vector2( 0.509024, 0.435562 )
+z_index = 3
+texture = ExtResource( 12 )
+
+[node name="RigidBodyParticles2D2" parent="ClusterBB2/aphid_03" instance=ExtResource( 30 )]
+position = Vector2( 2605.19, -12.2053 )
+amount = 2
+amount_random = 0.5
+particle_scene = ExtResource( 29 )
+explosiveness = 0.2
+emission_shape = SubResource( 7 )
+lifetime = 20.0
+lifetime_random = 0.3
+impulse = 50.0
+impulse_random = 0.4
+impulse_angle_degrees = -90.0
+impulse_spread_degrees = 50.0
+force_angle_degrees = -90.0
+force_spread_degrees = 20.0
+initial_rotation_degrees = 90.0
+initial_rotation_degrees_random = 0.5
+
+[node name="nectar_03" type="RigidBody2D" parent="ClusterBB2"]
+position = Vector2( 262, 656 )
+input_pickable = true
+
+[node name="Sprite" type="Sprite" parent="ClusterBB2/nectar_03"]
+z_index = 3
+texture = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClusterBB2/nectar_03"]
+shape = SubResource( 6 )
+
+[node name="rock_03" type="KinematicBody2D" parent="ClusterBB2"]
+position = Vector2( 207, 678.001 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+z_index = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ClusterBB2/rock_03"]
+position = Vector2( -0.698364, 0 )
+polygon = PoolVector2Array( 101.601, -23.9998, 100.601, 8.00031, 66.8192, 16.1156, 43.7741, 27.9874, 19.3322, 18.2106, -9.29961, 32.1774, -51.1999, 36.3674, -56.7866, 21.004, -91.0052, 4.2439, -86.1168, -7.62787, -51.428, -9.55377, 52.3507, -16.6256 )
+
+[node name="Sprite" type="Sprite" parent="ClusterBB2/rock_03"]
+position = Vector2( 1.68445, 2.74991 )
+scale = Vector2( 0.410984, 0.410984 )
+texture = ExtResource( 10 )
+
+[node name="PlantsA3" type="Node2D" parent="ClusterBB2"]
+position = Vector2( 230.573, 667.452 )
+rotation = -0.0314254
+scale = Vector2( 0.254516, 0.261336 )
+z_index = 6
+
+[node name="plant" type="Sprite" parent="ClusterBB2/PlantsA3"]
+position = Vector2( 245.903, -13.411 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterBB2/PlantsA3"]
+position = Vector2( 157.378, 7.66357 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterBB2/PlantsA3"]
+position = Vector2( 197.56, 4.76849 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.453465 )
+texture = ExtResource( 2 )
+
+[node name="Plants2" type="Node2D" parent="ClusterBB2/PlantsA3"]
+position = Vector2( -401.78, -125.328 )
+rotation = 1.77636e-15
+
+[node name="plant" type="Sprite" parent="ClusterBB2/PlantsA3/Plants2"]
+position = Vector2( 245.903, -13.411 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterBB2/PlantsA3/Plants2"]
+position = Vector2( 157.378, 7.66357 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterBB2/PlantsA3/Plants2"]
+position = Vector2( 197.56, 4.76849 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.453465 )
+texture = ExtResource( 2 )
+
+[node name="Plants3" type="Node2D" parent="ClusterBB2/PlantsA3"]
+position = Vector2( -494.871, 38.1014 )
+rotation = -0.442205
+
+[node name="plant" type="Sprite" parent="ClusterBB2/PlantsA3/Plants3"]
+position = Vector2( 245.903, -13.411 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterBB2/PlantsA3/Plants3"]
+position = Vector2( 83.4514, 14.0634 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant4" type="Sprite" parent="ClusterBB2/PlantsA3/Plants3"]
+position = Vector2( 142.782, -24.3828 )
+rotation = 0.408526
+scale = Vector2( 1.09045, 1.02157 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterBB2/PlantsA3/Plants3"]
+position = Vector2( 197.56, 4.76849 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.453465 )
+texture = ExtResource( 2 )
+
+[node name="Node2D" type="Node2D" parent="ClusterBB2/PlantsA3"]
+position = Vector2( -247.118, 50.6128 )
+rotation = -0.325661
+scale = Vector2( 1.16145, 0.617631 )
+
+[node name="foliage2" type="Sprite" parent="ClusterBB2/PlantsA3/Node2D"]
+position = Vector2( 204.062, 93.2505 )
+rotation = 0.675096
+scale = Vector2( 1.01479, 1.52741 )
+texture = ExtResource( 4 )
+
+[node name="foliage" type="Sprite" parent="ClusterBB2/PlantsA3/Node2D"]
+texture = ExtResource( 4 )
+
+[node name="ClusterBB3" type="Node2D" parent="."]
+position = Vector2( 2650.38, -314.023 )
+
+[node name="aphid_03" type="Sprite" parent="ClusterBB3"]
+position = Vector2( 123.867, 614.668 )
+rotation = -2.9274e-08
+scale = Vector2( 0.509024, 0.435562 )
+z_index = 3
+texture = ExtResource( 12 )
+
+[node name="RigidBodyParticles2D3" parent="ClusterBB3/aphid_03" instance=ExtResource( 30 )]
+position = Vector2( 1771.96, 214.043 )
+amount = 2
+amount_random = 0.5
+particle_scene = ExtResource( 29 )
+explosiveness = 0.2
+emission_shape = SubResource( 7 )
+lifetime = 20.0
+lifetime_random = 0.3
+impulse = 50.0
+impulse_random = 0.4
+impulse_angle_degrees = -90.0
+impulse_spread_degrees = 50.0
+force_angle_degrees = -90.0
+force_spread_degrees = 20.0
+initial_rotation_degrees = 90.0
+initial_rotation_degrees_random = 0.5
+
+[node name="nectar_03" type="RigidBody2D" parent="ClusterBB3"]
+position = Vector2( 262, 656 )
+input_pickable = true
+
+[node name="Sprite" type="Sprite" parent="ClusterBB3/nectar_03"]
+z_index = 3
+texture = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClusterBB3/nectar_03"]
+shape = SubResource( 6 )
+
+[node name="rock_03" type="KinematicBody2D" parent="ClusterBB3"]
+position = Vector2( 207, 678.001 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+z_index = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ClusterBB3/rock_03"]
+position = Vector2( -0.698364, 0 )
+polygon = PoolVector2Array( 101.601, -23.9998, 100.601, 8.00031, 66.8192, 16.1156, 43.7741, 27.9874, 19.3322, 18.2106, -9.29961, 32.1774, -51.1999, 36.3674, -56.7866, 21.004, -91.0052, 4.2439, -86.1168, -7.62787, -51.428, -9.55377, 52.3507, -16.6256 )
+
+[node name="Sprite" type="Sprite" parent="ClusterBB3/rock_03"]
+position = Vector2( 1.68445, 2.74991 )
+scale = Vector2( 0.410984, 0.410984 )
+texture = ExtResource( 10 )
+
+[node name="PlantsA3" type="Node2D" parent="ClusterBB3"]
+position = Vector2( 230.573, 667.452 )
+rotation = -0.0314254
+scale = Vector2( 0.254516, 0.261336 )
+z_index = 6
+
+[node name="plant" type="Sprite" parent="ClusterBB3/PlantsA3"]
+position = Vector2( 245.903, -13.411 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterBB3/PlantsA3"]
+position = Vector2( 157.378, 7.66357 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterBB3/PlantsA3"]
+position = Vector2( 197.56, 4.76849 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.453465 )
+texture = ExtResource( 2 )
+
+[node name="Plants2" type="Node2D" parent="ClusterBB3/PlantsA3"]
+position = Vector2( -401.78, -125.328 )
+rotation = 1.77636e-15
+
+[node name="plant" type="Sprite" parent="ClusterBB3/PlantsA3/Plants2"]
+position = Vector2( 245.903, -13.411 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterBB3/PlantsA3/Plants2"]
+position = Vector2( 157.378, 7.66357 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterBB3/PlantsA3/Plants2"]
+position = Vector2( 197.56, 4.76849 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.453465 )
+texture = ExtResource( 2 )
+
+[node name="Plants3" type="Node2D" parent="ClusterBB3/PlantsA3"]
+position = Vector2( -494.871, 38.1014 )
+rotation = -0.442205
+
+[node name="plant" type="Sprite" parent="ClusterBB3/PlantsA3/Plants3"]
+position = Vector2( 245.903, -13.411 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterBB3/PlantsA3/Plants3"]
+position = Vector2( 83.4514, 14.0634 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant4" type="Sprite" parent="ClusterBB3/PlantsA3/Plants3"]
+position = Vector2( 142.782, -24.3828 )
+rotation = 0.408526
+scale = Vector2( 1.09045, 1.02157 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterBB3/PlantsA3/Plants3"]
+position = Vector2( 197.56, 4.76849 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.453465 )
+texture = ExtResource( 2 )
+
+[node name="Node2D" type="Node2D" parent="ClusterBB3/PlantsA3"]
+position = Vector2( -247.118, 50.6128 )
+rotation = -0.325661
+scale = Vector2( 1.16145, 0.617631 )
+
+[node name="foliage2" type="Sprite" parent="ClusterBB3/PlantsA3/Node2D"]
+position = Vector2( 204.062, 93.2505 )
+rotation = 0.675096
+scale = Vector2( 1.01479, 1.52741 )
+texture = ExtResource( 4 )
+
+[node name="foliage" type="Sprite" parent="ClusterBB3/PlantsA3/Node2D"]
+texture = ExtResource( 4 )
+
+[node name="ClusterBB4" type="Node2D" parent="."]
+position = Vector2( 1688, -280.549 )
+
+[node name="aphid_03" type="Sprite" parent="ClusterBB4"]
+position = Vector2( 123.867, 613.895 )
+rotation = -2.9274e-08
+scale = Vector2( 0.509024, 0.435562 )
+z_index = 3
+texture = ExtResource( 12 )
+
+[node name="RigidBodyParticles2D4" parent="ClusterBB4/aphid_03" instance=ExtResource( 30 )]
+position = Vector2( 584.486, 420.998 )
+amount = 2
+amount_random = 0.5
+particle_scene = ExtResource( 29 )
+explosiveness = 0.2
+emission_shape = SubResource( 7 )
+lifetime = 20.0
+lifetime_random = 0.3
+impulse = 50.0
+impulse_random = 0.4
+impulse_angle_degrees = -90.0
+impulse_spread_degrees = 50.0
+force_angle_degrees = -90.0
+force_spread_degrees = 20.0
+initial_rotation_degrees = 90.0
+initial_rotation_degrees_random = 0.5
+
+[node name="nectar_03" type="RigidBody2D" parent="ClusterBB4"]
+position = Vector2( 262, 656 )
+input_pickable = true
+
+[node name="Sprite" type="Sprite" parent="ClusterBB4/nectar_03"]
+z_index = 3
+texture = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClusterBB4/nectar_03"]
+shape = SubResource( 6 )
+
+[node name="rock_03" type="KinematicBody2D" parent="ClusterBB4"]
+position = Vector2( 207, 678.001 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+z_index = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ClusterBB4/rock_03"]
+position = Vector2( -0.698364, 0 )
+polygon = PoolVector2Array( 101.601, -23.9998, 100.601, 8.00031, 66.8192, 16.1156, 43.7741, 27.9874, 19.3322, 18.2106, -9.29961, 32.1774, -51.1999, 36.3674, -56.7866, 21.004, -91.0052, 4.2439, -86.1168, -7.62787, -51.428, -9.55377, 52.3507, -16.6256 )
+
+[node name="Sprite" type="Sprite" parent="ClusterBB4/rock_03"]
+position = Vector2( 1.68445, 2.74991 )
+scale = Vector2( 0.410984, 0.410984 )
+texture = ExtResource( 10 )
+
+[node name="PlantsA3" type="Node2D" parent="ClusterBB4"]
+position = Vector2( 230.573, 667.452 )
+rotation = -0.0314254
+scale = Vector2( 0.254516, 0.261336 )
+z_index = 6
+
+[node name="plant" type="Sprite" parent="ClusterBB4/PlantsA3"]
+position = Vector2( 245.903, -13.411 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterBB4/PlantsA3"]
+position = Vector2( 157.378, 7.66357 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterBB4/PlantsA3"]
+position = Vector2( 197.56, 4.76849 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.453465 )
+texture = ExtResource( 2 )
+
+[node name="Plants2" type="Node2D" parent="ClusterBB4/PlantsA3"]
+position = Vector2( -401.78, -125.328 )
+rotation = 1.77636e-15
+
+[node name="plant" type="Sprite" parent="ClusterBB4/PlantsA3/Plants2"]
+position = Vector2( 245.903, -13.411 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterBB4/PlantsA3/Plants2"]
+position = Vector2( 157.378, 7.66357 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterBB4/PlantsA3/Plants2"]
+position = Vector2( 197.56, 4.76849 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.453465 )
+texture = ExtResource( 2 )
+
+[node name="Plants3" type="Node2D" parent="ClusterBB4/PlantsA3"]
+position = Vector2( -494.871, 38.1014 )
+rotation = -0.442205
+
+[node name="plant" type="Sprite" parent="ClusterBB4/PlantsA3/Plants3"]
+position = Vector2( 245.903, -13.411 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterBB4/PlantsA3/Plants3"]
+position = Vector2( 83.4514, 14.0634 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant4" type="Sprite" parent="ClusterBB4/PlantsA3/Plants3"]
+position = Vector2( 142.782, -24.3828 )
+rotation = 0.408526
+scale = Vector2( 1.09045, 1.02157 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterBB4/PlantsA3/Plants3"]
+position = Vector2( 197.56, 4.76849 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.453465 )
+texture = ExtResource( 2 )
+
+[node name="Node2D" type="Node2D" parent="ClusterBB4/PlantsA3"]
+position = Vector2( -247.118, 50.6128 )
+rotation = -0.325661
+scale = Vector2( 1.16145, 0.617631 )
+
+[node name="foliage2" type="Sprite" parent="ClusterBB4/PlantsA3/Node2D"]
+position = Vector2( 204.062, 93.2505 )
+rotation = 0.675096
+scale = Vector2( 1.01479, 1.52741 )
+texture = ExtResource( 4 )
+
+[node name="foliage" type="Sprite" parent="ClusterBB4/PlantsA3/Node2D"]
+texture = ExtResource( 4 )
+
+[node name="ClusterBB5" type="Node2D" parent="."]
+position = Vector2( 3534.66, -191.285 )
+
+[node name="aphid_03" type="Sprite" parent="ClusterBB5"]
+position = Vector2( 120.777, 618.531 )
+rotation = -2.9274e-08
+scale = Vector2( 0.509024, 0.435562 )
+z_index = 3
+texture = ExtResource( 12 )
+
+[node name="RigidBodyParticles2D5" parent="ClusterBB5/aphid_03" instance=ExtResource( 30 )]
+position = Vector2( -2003.66, -429.604 )
+amount = 2
+amount_random = 0.5
+particle_scene = ExtResource( 29 )
+explosiveness = 0.2
+emission_shape = SubResource( 7 )
+lifetime = 20.0
+lifetime_random = 0.3
+impulse = 50.0
+impulse_random = 0.4
+impulse_angle_degrees = -90.0
+impulse_spread_degrees = 50.0
+force_angle_degrees = -90.0
+force_spread_degrees = 20.0
+initial_rotation_degrees = 90.0
+initial_rotation_degrees_random = 0.5
+
+[node name="nectar_03" type="RigidBody2D" parent="ClusterBB5"]
+position = Vector2( 262, 656 )
+input_pickable = true
+
+[node name="Sprite" type="Sprite" parent="ClusterBB5/nectar_03"]
+z_index = 3
+texture = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClusterBB5/nectar_03"]
+shape = SubResource( 6 )
+
+[node name="rock_03" type="KinematicBody2D" parent="ClusterBB5"]
+position = Vector2( 207, 678.001 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+z_index = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ClusterBB5/rock_03"]
+position = Vector2( -0.698364, 0 )
+polygon = PoolVector2Array( 101.601, -23.9998, 100.601, 8.00031, 66.8192, 16.1156, 43.7741, 27.9874, 19.3322, 18.2106, -9.29961, 32.1774, -51.1999, 36.3674, -56.7866, 21.004, -91.0052, 4.2439, -86.1168, -7.62787, -51.428, -9.55377, 52.3507, -16.6256 )
+
+[node name="Sprite" type="Sprite" parent="ClusterBB5/rock_03"]
+position = Vector2( 1.68445, 2.74991 )
+scale = Vector2( 0.410984, 0.410984 )
+texture = ExtResource( 10 )
+
+[node name="PlantsA3" type="Node2D" parent="ClusterBB5"]
+position = Vector2( 230.573, 667.452 )
+rotation = -0.0314254
+scale = Vector2( 0.254516, 0.261336 )
+z_index = 6
+
+[node name="plant" type="Sprite" parent="ClusterBB5/PlantsA3"]
+position = Vector2( 245.903, -13.411 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterBB5/PlantsA3"]
+position = Vector2( 157.378, 7.66357 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterBB5/PlantsA3"]
+position = Vector2( 197.56, 4.76849 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.453465 )
+texture = ExtResource( 2 )
+
+[node name="Plants2" type="Node2D" parent="ClusterBB5/PlantsA3"]
+position = Vector2( -401.78, -125.328 )
+rotation = 1.77636e-15
+
+[node name="plant" type="Sprite" parent="ClusterBB5/PlantsA3/Plants2"]
+position = Vector2( 245.903, -13.411 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterBB5/PlantsA3/Plants2"]
+position = Vector2( 157.378, 7.66357 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterBB5/PlantsA3/Plants2"]
+position = Vector2( 197.56, 4.76849 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.453465 )
+texture = ExtResource( 2 )
+
+[node name="Plants3" type="Node2D" parent="ClusterBB5/PlantsA3"]
+position = Vector2( -494.871, 38.1014 )
+rotation = -0.442205
+
+[node name="plant" type="Sprite" parent="ClusterBB5/PlantsA3/Plants3"]
+position = Vector2( 245.903, -13.411 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterBB5/PlantsA3/Plants3"]
+position = Vector2( 83.4514, 14.0634 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant4" type="Sprite" parent="ClusterBB5/PlantsA3/Plants3"]
+position = Vector2( 142.782, -24.3828 )
+rotation = 0.408526
+scale = Vector2( 1.09045, 1.02157 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterBB5/PlantsA3/Plants3"]
+position = Vector2( 197.56, 4.76849 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.453465 )
+texture = ExtResource( 2 )
+
+[node name="Node2D" type="Node2D" parent="ClusterBB5/PlantsA3"]
+position = Vector2( -247.118, 50.6128 )
+rotation = -0.325661
+scale = Vector2( 1.16145, 0.617631 )
+
+[node name="foliage2" type="Sprite" parent="ClusterBB5/PlantsA3/Node2D"]
+position = Vector2( 204.062, 93.2505 )
+rotation = 0.675096
+scale = Vector2( 1.01479, 1.52741 )
+texture = ExtResource( 4 )
+
+[node name="foliage" type="Sprite" parent="ClusterBB5/PlantsA3/Node2D"]
+texture = ExtResource( 4 )
+
+[node name="nectar_groupB" type="RigidBody2D" parent="."]
+position = Vector2( 511.642, 257.878 )
+rotation = 1.77636e-15
+z_index = 3
+input_pickable = true
+
+[node name="Sprite" type="Sprite" parent="nectar_groupB"]
+texture = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nectar_groupB"]
+shape = SubResource( 6 )
+
+[node name="nectar_groupB5" type="RigidBody2D" parent="."]
+position = Vector2( 1181.39, 329.696 )
+rotation = 1.77636e-15
+z_index = 3
+input_pickable = true
+
+[node name="Sprite" type="Sprite" parent="nectar_groupB5"]
+texture = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nectar_groupB5"]
+position = Vector2( 0, -1.22092 )
+shape = SubResource( 6 )
+
+[node name="ClusterGroupB" type="Node2D" parent="."]
+position = Vector2( 622.484, 226.331 )
+rotation = -3.12588
+scale = Vector2( 0.414228, -0.410918 )
+z_index = 3
+
+[node name="aphid_01" parent="ClusterGroupB" instance=ExtResource( 27 )]
+
+[node name="rocks02" type="Sprite" parent="ClusterGroupB"]
+position = Vector2( -44.5945, 210.766 )
+texture = ExtResource( 6 )
+
+[node name="rocks04" type="Sprite" parent="ClusterGroupB/rocks02"]
+position = Vector2( 201.938, 43.7942 )
+texture = ExtResource( 11 )
+
+[node name="rocks03" type="Sprite" parent="ClusterGroupB"]
+position = Vector2( 443.949, 177.158 )
+texture = ExtResource( 10 )
+
+[node name="rock_01" type="KinematicBody2D" parent="ClusterGroupB"]
+position = Vector2( 103.563, 125.781 )
+rotation = 3.03779
+scale = Vector2( 2.41434, -2.43337 )
+z_index = -1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ClusterGroupB/rock_01"]
+position = Vector2( -17.1298, 3.67737 )
+polygon = PoolVector2Array( 63.7349, -3.71014, 97.5455, -7.82233, 98.6353, 13.7806, 150.808, 55.6168, 124.792, 79.0979, 56.5287, 86.5051, -13.0886, 74.4993, -45.5924, 86.1716, -81.2171, 70.6908, -78.2865, 50.4329, -123.577, 52.2831, -120.043, 28.4221, -160.758, 16.1613, -186.677, 10.108, -213.173, -3.41852, -215.922, -29.6621, -142.615, -29.8037, -54.9235, 10.2737, 4.53467, -10.0309 )
+
+[node name="Sprite" type="Sprite" parent="ClusterGroupB/rock_01"]
+position = Vector2( 1.68445, 2.74991 )
+scale = Vector2( 0.410984, 0.410984 )
+texture = ExtResource( 13 )
+
+[node name="PlantsA2" type="Node2D" parent="ClusterGroupB"]
+position = Vector2( 447.571, 27.7047 )
+rotation = -3.12575
+scale = Vector2( 0.606539, -0.611712 )
+z_index = 5
+
+[node name="plant" type="Sprite" parent="ClusterGroupB/PlantsA2"]
+position = Vector2( 370.035, 81.6031 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterGroupB/PlantsA2"]
+position = Vector2( 159.977, 126.432 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterGroupB/PlantsA2"]
+position = Vector2( 1002.74, 244.913 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.453465 )
+texture = ExtResource( 2 )
+
+[node name="Plants2" type="Node2D" parent="ClusterGroupB/PlantsA2"]
+position = Vector2( -524.082, 40.8251 )
+rotation = 1.77636e-15
+
+[node name="plant" type="Sprite" parent="ClusterGroupB/PlantsA2/Plants2"]
+position = Vector2( 245.903, -13.411 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterGroupB/PlantsA2/Plants2"]
+position = Vector2( 157.378, 7.66357 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterGroupB/PlantsA2/Plants2"]
+position = Vector2( 197.56, 4.76849 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.453465 )
+texture = ExtResource( 2 )
+
+[node name="Plants3" type="Node2D" parent="ClusterGroupB/PlantsA2"]
+position = Vector2( -208.663, 124.022 )
+rotation = 1.77636e-15
+
+[node name="plant" type="Sprite" parent="ClusterGroupB/PlantsA2/Plants3"]
+position = Vector2( 245.903, -13.411 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterGroupB/PlantsA2/Plants3"]
+position = Vector2( 83.4514, 14.0634 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant4" type="Sprite" parent="ClusterGroupB/PlantsA2/Plants3"]
+position = Vector2( 142.782, -24.3828 )
+rotation = 0.408526
+scale = Vector2( 1.09045, 1.02157 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterGroupB/PlantsA2/Plants3"]
+position = Vector2( 197.56, 4.76849 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.453465 )
+texture = ExtResource( 2 )
+
+[node name="nectar_groupB2" type="RigidBody2D" parent="."]
+position = Vector2( 1438.49, 631.078 )
+rotation = 1.77636e-15
+z_index = 3
+input_pickable = true
+
+[node name="Sprite" type="Sprite" parent="nectar_groupB2"]
+texture = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nectar_groupB2"]
+shape = SubResource( 6 )
+
+[node name="ClusterGroupB2" type="Node2D" parent="."]
+position = Vector2( 1549.33, 599.531 )
+rotation = -3.12588
+scale = Vector2( 0.414228, -0.410918 )
+z_index = 3
+
+[node name="aphid_01" type="Sprite" parent="ClusterGroupB2"]
+position = Vector2( 0.000244141, -0.00012207 )
+texture = ExtResource( 12 )
+
+[node name="RigidBodyParticles2D7" parent="ClusterGroupB2/aphid_01" instance=ExtResource( 30 )]
+position = Vector2( -670.774, -720.514 )
+rotation = -3.12575
+scale = Vector2( 1.22885, -1.05997 )
+amount = 2
+amount_random = 0.5
+particle_scene = ExtResource( 29 )
+explosiveness = 0.2
+emission_shape = SubResource( 7 )
+lifetime = 20.0
+lifetime_random = 0.3
+impulse = 50.0
+impulse_random = 0.4
+impulse_angle_degrees = -90.0
+impulse_spread_degrees = 50.0
+force_angle_degrees = -90.0
+force_spread_degrees = 20.0
+initial_rotation_degrees = 90.0
+initial_rotation_degrees_random = 0.5
+
+[node name="rocks02" type="Sprite" parent="ClusterGroupB2"]
+position = Vector2( -44.5945, 210.766 )
+texture = ExtResource( 6 )
+
+[node name="rocks04" type="Sprite" parent="ClusterGroupB2/rocks02"]
+position = Vector2( 201.938, 43.7942 )
+texture = ExtResource( 11 )
+
+[node name="rocks03" type="Sprite" parent="ClusterGroupB2"]
+position = Vector2( 443.949, 177.158 )
+texture = ExtResource( 10 )
+
+[node name="rock_01" type="KinematicBody2D" parent="ClusterGroupB2"]
+position = Vector2( 103.563, 125.781 )
+rotation = 3.03779
+scale = Vector2( 2.41434, -2.43337 )
+z_index = -1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ClusterGroupB2/rock_01"]
+position = Vector2( -17.1298, 3.67737 )
+polygon = PoolVector2Array( 63.7349, -3.71014, 93.6604, 2.3049, 114.143, 8.88666, 181.837, 32.8094, 136.893, 54.5789, 109.596, 59.4757, 54.166, 75.9324, -13.1898, 68.378, -45.5924, 86.1716, -81.2171, 70.6908, -78.2865, 50.4329, -123.577, 52.2831, -146.409, 58.8342, -205.483, 51.9328, -216.085, 25.3025, -218.334, 6.70068, -179.28, 17.6308, -137.916, 6.95404, -54.9235, 10.2737, 2.60645, 9.06323 )
+
+[node name="Sprite" type="Sprite" parent="ClusterGroupB2/rock_01"]
+position = Vector2( 1.68445, 2.74991 )
+scale = Vector2( 0.410984, 0.410984 )
+texture = ExtResource( 13 )
+
+[node name="PlantsA2" type="Node2D" parent="ClusterGroupB2"]
+position = Vector2( 447.571, 27.7047 )
+rotation = -3.12575
+scale = Vector2( 0.606539, -0.611712 )
+z_index = 5
+
+[node name="plant" type="Sprite" parent="ClusterGroupB2/PlantsA2"]
+position = Vector2( 921.167, 117.247 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterGroupB2/PlantsA2"]
+position = Vector2( 159.977, 126.432 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterGroupB2/PlantsA2"]
+position = Vector2( 1002.74, 244.913 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.453465 )
+texture = ExtResource( 2 )
+
+[node name="Plants2" type="Node2D" parent="ClusterGroupB2/PlantsA2"]
+position = Vector2( -524.082, 40.8251 )
+rotation = 1.77636e-15
+
+[node name="plant" type="Sprite" parent="ClusterGroupB2/PlantsA2/Plants2"]
+position = Vector2( 320.493, 80.5592 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterGroupB2/PlantsA2/Plants2"]
+position = Vector2( 160.602, 59.5093 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterGroupB2/PlantsA2/Plants2"]
+position = Vector2( 241.267, 45.511 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.236994 )
+texture = ExtResource( 2 )
+
+[node name="Plants3" type="Node2D" parent="ClusterGroupB2/PlantsA2"]
+position = Vector2( -208.663, 124.022 )
+rotation = 1.77636e-15
+
+[node name="plant" type="Sprite" parent="ClusterGroupB2/PlantsA2/Plants3"]
+position = Vector2( 245.903, -13.411 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterGroupB2/PlantsA2/Plants3"]
+position = Vector2( 83.4514, 14.0634 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant4" type="Sprite" parent="ClusterGroupB2/PlantsA2/Plants3"]
+position = Vector2( 142.782, -24.3828 )
+rotation = 0.408526
+scale = Vector2( 1.09045, 1.02157 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterGroupB2/PlantsA2/Plants3"]
+position = Vector2( 197.56, 4.76849 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.453465 )
+texture = ExtResource( 2 )
+
+[node name="nectar_groupB3" type="RigidBody2D" parent="."]
+position = Vector2( 2547.95, 289.455 )
+rotation = 1.77636e-15
+z_index = 3
+input_pickable = true
+
+[node name="Sprite" type="Sprite" parent="nectar_groupB3"]
+texture = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nectar_groupB3"]
+shape = SubResource( 6 )
+
+[node name="ClusterGroupB3" type="Node2D" parent="."]
+position = Vector2( 2658.79, 257.908 )
+rotation = -3.12588
+scale = Vector2( 0.414228, -0.410918 )
+z_index = 3
+
+[node name="aphid_01" type="Sprite" parent="ClusterGroupB3"]
+position = Vector2( 0.000244141, -0.00012207 )
+texture = ExtResource( 12 )
+
+[node name="RigidBodyParticles2D8" parent="ClusterGroupB3/aphid_01" instance=ExtResource( 30 )]
+position = Vector2( 2693.85, 817.755 )
+rotation = 3.12575
+scale = Vector2( 1.22885, -1.05997 )
+amount = 2
+amount_random = 0.5
+particle_scene = ExtResource( 29 )
+explosiveness = 0.2
+emission_shape = SubResource( 7 )
+lifetime = 20.0
+lifetime_random = 0.3
+impulse = 50.0
+impulse_random = 0.4
+impulse_angle_degrees = -90.0
+impulse_spread_degrees = 50.0
+force_angle_degrees = -90.0
+force_spread_degrees = 20.0
+initial_rotation_degrees = 90.0
+initial_rotation_degrees_random = 0.5
+
+[node name="rocks02" type="Sprite" parent="ClusterGroupB3"]
+position = Vector2( -44.5945, 210.766 )
+texture = ExtResource( 6 )
+
+[node name="rocks04" type="Sprite" parent="ClusterGroupB3/rocks02"]
+position = Vector2( 201.938, 43.7942 )
+texture = ExtResource( 11 )
+
+[node name="rocks03" type="Sprite" parent="ClusterGroupB3"]
+position = Vector2( 443.949, 177.158 )
+texture = ExtResource( 10 )
+
+[node name="rock_01" type="KinematicBody2D" parent="ClusterGroupB3"]
+position = Vector2( 103.563, 125.781 )
+rotation = 3.03779
+scale = Vector2( 2.41434, -2.43337 )
+z_index = -1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ClusterGroupB3/rock_01"]
+position = Vector2( -17.1298, 3.67737 )
+polygon = PoolVector2Array( 63.7349, -3.71014, 97.5455, -7.82233, 109.338, 13.1887, 152.535, 35.3159, 106.208, 51.7534, 91.3516, 70.6726, 49.9873, 70.1504, -13.0886, 74.4993, -45.5924, 86.1716, -81.2171, 70.6908, -78.2865, 50.4329, -101.988, 57.1008, -124.426, 51.9829, -152.428, 45.9698, -209.62, 43.4385, -212.221, 21.925, -169.481, 14.489, -136.096, -5.86087, -51.6272, 16.0202, 4.53467, -10.0309 )
+
+[node name="Sprite" type="Sprite" parent="ClusterGroupB3/rock_01"]
+position = Vector2( 1.68445, 2.74991 )
+scale = Vector2( 0.410984, 0.410984 )
+texture = ExtResource( 13 )
+
+[node name="PlantsA2" type="Node2D" parent="ClusterGroupB3"]
+position = Vector2( 447.571, 27.7047 )
+rotation = -3.12575
+scale = Vector2( 0.606539, -0.611712 )
+z_index = 5
+
+[node name="plant" type="Sprite" parent="ClusterGroupB3/PlantsA2"]
+position = Vector2( 370.035, 81.6031 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterGroupB3/PlantsA2"]
+position = Vector2( 159.977, 126.432 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterGroupB3/PlantsA2"]
+position = Vector2( 1002.74, 244.913 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.453465 )
+texture = ExtResource( 2 )
+
+[node name="Plants2" type="Node2D" parent="ClusterGroupB3/PlantsA2"]
+position = Vector2( -524.082, 40.8251 )
+rotation = 1.77636e-15
+
+[node name="plant" type="Sprite" parent="ClusterGroupB3/PlantsA2/Plants2"]
+position = Vector2( 245.903, -13.411 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterGroupB3/PlantsA2/Plants2"]
+position = Vector2( 157.378, 7.66357 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterGroupB3/PlantsA2/Plants2"]
+position = Vector2( 197.56, 4.76849 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.453465 )
+texture = ExtResource( 2 )
+
+[node name="Plants3" type="Node2D" parent="ClusterGroupB3/PlantsA2"]
+position = Vector2( -208.663, 124.022 )
+rotation = 1.77636e-15
+
+[node name="plant" type="Sprite" parent="ClusterGroupB3/PlantsA2/Plants3"]
+position = Vector2( 245.903, -13.411 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterGroupB3/PlantsA2/Plants3"]
+position = Vector2( 83.4514, 14.0634 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant4" type="Sprite" parent="ClusterGroupB3/PlantsA2/Plants3"]
+position = Vector2( 142.782, -24.3828 )
+rotation = 0.408526
+scale = Vector2( 1.09045, 1.02157 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterGroupB3/PlantsA2/Plants3"]
+position = Vector2( 197.56, 4.76849 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.453465 )
+texture = ExtResource( 2 )
+
+[node name="nectar_groupB4" type="RigidBody2D" parent="."]
+position = Vector2( 3325.55, 666.867 )
+rotation = 1.77636e-15
+z_index = 3
+input_pickable = true
+
+[node name="Sprite" type="Sprite" parent="nectar_groupB4"]
+texture = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nectar_groupB4"]
+shape = SubResource( 6 )
+
+[node name="ClusterGroupB4" type="Node2D" parent="."]
+position = Vector2( 3436.39, 635.32 )
+rotation = -3.12588
+scale = Vector2( 0.414228, -0.410918 )
+z_index = 3
+
+[node name="aphid_01" type="Sprite" parent="ClusterGroupB4"]
+position = Vector2( 0.000244141, -0.00012207 )
+texture = ExtResource( 12 )
+
+[node name="RigidBodyParticles2D9" parent="ClusterGroupB4/aphid_01" instance=ExtResource( 30 )]
+position = Vector2( 6835.87, -947.847 )
+rotation = -3.12575
+scale = Vector2( 1.22885, -1.05997 )
+amount = 2
+amount_random = 0.5
+particle_scene = ExtResource( 29 )
+explosiveness = 0.2
+emission_shape = SubResource( 7 )
+lifetime = 20.0
+lifetime_random = 0.3
+impulse = 50.0
+impulse_random = 0.4
+impulse_angle_degrees = -90.0
+impulse_spread_degrees = 50.0
+force_angle_degrees = -90.0
+force_spread_degrees = 20.0
+initial_rotation_degrees = 90.0
+initial_rotation_degrees_random = 0.5
+
+[node name="rocks02" type="Sprite" parent="ClusterGroupB4"]
+position = Vector2( -44.5945, 210.766 )
+texture = ExtResource( 6 )
+
+[node name="rocks04" type="Sprite" parent="ClusterGroupB4/rocks02"]
+position = Vector2( 201.938, 43.7942 )
+texture = ExtResource( 11 )
+
+[node name="rocks03" type="Sprite" parent="ClusterGroupB4"]
+position = Vector2( 443.949, 177.158 )
+texture = ExtResource( 10 )
+
+[node name="rock_01" type="KinematicBody2D" parent="ClusterGroupB4"]
+position = Vector2( 103.563, 125.781 )
+rotation = 3.03779
+scale = Vector2( 2.41434, -2.43337 )
+z_index = -1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ClusterGroupB4/rock_01"]
+position = Vector2( -17.1298, 3.67737 )
+polygon = PoolVector2Array( 63.7349, -3.71014, 97.5455, -7.82233, 144.601, 19.3856, 169.553, 39.6224, 99.783, 50.0546, 56.5287, 86.5051, -13.0886, 74.4993, -45.5924, 86.1716, -81.2171, 70.6908, -133.301, 47.6086, -165.466, 54.9623, -205.419, 38.6249, -217.221, 22.4471, -139.237, 15.9592, -54.9235, 10.2737, 4.53467, -10.0309 )
+
+[node name="Sprite" type="Sprite" parent="ClusterGroupB4/rock_01"]
+position = Vector2( 1.68445, 2.74991 )
+scale = Vector2( 0.410984, 0.410984 )
+texture = ExtResource( 13 )
+
+[node name="PlantsA2" type="Node2D" parent="ClusterGroupB4"]
+position = Vector2( 447.571, 27.7047 )
+rotation = -3.12575
+scale = Vector2( 0.606539, -0.611712 )
+z_index = 5
+
+[node name="plant" type="Sprite" parent="ClusterGroupB4/PlantsA2"]
+position = Vector2( 370.035, 81.6031 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterGroupB4/PlantsA2"]
+position = Vector2( 159.977, 126.432 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterGroupB4/PlantsA2"]
+position = Vector2( 1002.74, 244.913 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.453465 )
+texture = ExtResource( 2 )
+
+[node name="Plants2" type="Node2D" parent="ClusterGroupB4/PlantsA2"]
+position = Vector2( -501.858, 93.6107 )
+rotation = 1.77636e-15
+
+[node name="plant" type="Sprite" parent="ClusterGroupB4/PlantsA2/Plants2"]
+position = Vector2( 245.903, -13.411 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterGroupB4/PlantsA2/Plants2"]
+position = Vector2( 157.378, 7.66357 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterGroupB4/PlantsA2/Plants2"]
+position = Vector2( 197.56, 4.76849 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.453465 )
+texture = ExtResource( 2 )
+
+[node name="Plants4" type="Node2D" parent="ClusterGroupB4/PlantsA2"]
+position = Vector2( 890.621, 310.31 )
+rotation = 1.77636e-15
+
+[node name="plant" type="Sprite" parent="ClusterGroupB4/PlantsA2/Plants4"]
+position = Vector2( 245.903, -13.411 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterGroupB4/PlantsA2/Plants4"]
+position = Vector2( 157.378, 7.66357 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterGroupB4/PlantsA2/Plants4"]
+position = Vector2( 197.56, 4.76849 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.453465 )
+texture = ExtResource( 2 )
+
+[node name="Plants3" type="Node2D" parent="ClusterGroupB4/PlantsA2"]
+position = Vector2( -208.663, 124.022 )
+rotation = 1.77636e-15
+
+[node name="plant" type="Sprite" parent="ClusterGroupB4/PlantsA2/Plants3"]
+position = Vector2( 245.903, -13.411 )
+rotation = 1.77636e-15
+scale = Vector2( -0.728772, 0.84695 )
+texture = ExtResource( 2 )
+
+[node name="plant2" type="Sprite" parent="ClusterGroupB4/PlantsA2/Plants3"]
+position = Vector2( 83.4514, 14.0634 )
+rotation = 1.77636e-15
+scale = Vector2( 0.536899, 0.748137 )
+texture = ExtResource( 2 )
+
+[node name="plant4" type="Sprite" parent="ClusterGroupB4/PlantsA2/Plants3"]
+position = Vector2( 142.782, -24.3828 )
+rotation = 0.408526
+scale = Vector2( 1.09045, 1.02157 )
+texture = ExtResource( 2 )
+
+[node name="plant3" type="Sprite" parent="ClusterGroupB4/PlantsA2/Plants3"]
+position = Vector2( 197.56, 4.76849 )
+rotation = 0.226616
+scale = Vector2( 0.308387, 0.453465 )
+texture = ExtResource( 2 )
+
+[node name="End" type="WindowDialog" parent="."]
+margin_left = 3791.63
+margin_top = 375.917
+margin_right = 4113.63
+margin_bottom = 582.917
+window_title = "End"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="End"]
+margin_left = 28.0
+margin_top = 35.0
+margin_right = 288.0
+margin_bottom = 113.0
+custom_fonts/font = SubResource( 8 )
+text = "The hive has arrived with the vital nectar to  heal their home planet."
+align = 1
+autowrap = true
+
+[node name="PlayAgain" type="Button" parent="End"]
+margin_left = 75.4023
+margin_top = 149.874
+margin_right = 152.402
+margin_bottom = 169.874
+text = "Play Again"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenu" type="Button" parent="End"]
+margin_left = 169.422
+margin_top = 149.874
+margin_right = 252.422
+margin_bottom = 169.874
+text = "Main Menu"
+
+[node name="Hive" type="Node2D" parent="."]
+position = Vector2( 4157.45, 460.769 )
+
+[node name="Sprite" type="Sprite" parent="Hive"]
+position = Vector2( -102.685, -2.30392 )
+scale = Vector2( 0.792655, 0.792655 )
+texture = ExtResource( 7 )
+
+[node name="CharacterRig" parent="." instance=ExtResource( 9 )]
+position = Vector2( 200, 500 )
+mode = 2
+gravity_scale = 0.0
+contacts_reported = 5
+contact_monitor = true
+[connection signal="timeout" from="Enemy/EnemyChangePathTimer" to="Enemy" method="_on_EnemyChangePathTimer_timeout"]
+[connection signal="pressed" from="End/PlayAgain" to="." method="_on_PlayAgain_pressed"]
+[connection signal="pressed" from="End/MainMenu" to="." method="_on_MainMenu_pressed"]
+[connection signal="body_shape_entered" from="CharacterRig" to="CharacterRig" method="_on_CharacterRig_body_shape_entered"]
