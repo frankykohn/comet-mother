@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/key press 3.wav-758a55f540b56c3026c7159f318d3021.sample"
+
+[deps]
+
+source_file="res://src/World/Levels/assets/key press 3.wav"
+dest_files=[ "res://.import/key press 3.wav-758a55f540b56c3026c7159f318d3021.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/incorrect input.wav-e32d1859eb5327cab7a5caabe1761874.sample"
+
+[deps]
+
+source_file="res://src/World/Levels/assets/incorrect input.wav"
+dest_files=[ "res://.import/incorrect input.wav-e32d1859eb5327cab7a5caabe1761874.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
