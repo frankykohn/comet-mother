@@ -31,6 +31,8 @@ MenuBackAudio="*res://src/UI/MainMenu/MenuBackAudio.tscn"
 window/size/width=1920
 window/size/height=1080
 window/size/fullscreen=true
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [input]
 

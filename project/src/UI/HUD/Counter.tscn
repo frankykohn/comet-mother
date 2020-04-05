@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/UI/default_theme.tres" type="Theme" id=1]
+
+[node name="Counter" type="NinePatchRect"]
+margin_left = 300.0
+margin_top = 900.0
+margin_right = 600.0
+margin_bottom = 980.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = -0.425873
+margin_right = 39.5741
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -30.0
+margin_right = 219.0
+margin_bottom = 47.0
+theme = ExtResource( 1 )
+text = "Nectar: "
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

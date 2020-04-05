@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+signal collectNectar(value)
+
 var velocity = Vector2()
 var noKeyPress = false;
 var look_direction = Vector2(1,0)
@@ -9,10 +11,12 @@ onready var player = $AudioStreamPlayer
 export (int) var speed = 150
 var rand_generate = RandomNumberGenerator.new()
 var sound = AudioStreamPlayer.new()
+var value = 0
+
 func _ready():
 	add_child(sound)
 	set_contact_monitor(true)
-	#connect("body_shape_entered", self, "_on_CharacterRig_body_shape_entered")
+	#connect("collectNectar", get_node("../GUI"), "_on_collect_nectar", [value])
 	get_viewport().audio_listener_enable_2d = true
 	var dir = Directory.new()
 	if dir.open("res://src/World/Levels/assets") == OK:
@@ -51,7 +55,8 @@ func _on_CharacterRig_body_shape_entered(body_id, body, body_shape, local_shape)
 	var randNum = rand_generate.randi_range(0, soundFxArray.size() - 1)
 	sound.set_stream(soundFxArray[randNum])
 	sound.play()
-	
+	value += 1
+	emit_signal("collectNectar", value)
 	#print("reached after sound.play()")
 	if "NectarBubble" in body.get_name():
 		body.queue_free()
