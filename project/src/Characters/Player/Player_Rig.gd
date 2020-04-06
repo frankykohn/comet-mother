@@ -51,17 +51,16 @@ func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 
 func _on_CharacterRig_body_shape_entered(body_id, body, body_shape, local_shape):
 	#print(body.get_name())
-	randomize()
-	var randNum = rand_generate.randi_range(0, soundFxArray.size() - 1)
-	sound.set_stream(soundFxArray[randNum])
-	sound.play()
-	value += 1
+	
 	emit_signal("collectNectar", value)
 	#print("reached after sound.play()")
 	if "NectarBubble" in body.get_name():
+		randomize()
+		var randNum = rand_generate.randi_range(0, soundFxArray.size() - 1)
+		sound.set_stream(soundFxArray[randNum])
+		sound.play()
+		value += 1
 		body.queue_free()
-		
-		
 
 func _physics_process(delta):
 	var input_direction = get_input_direction()

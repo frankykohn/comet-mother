@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://src/World/Levels/assets/images/shroom.png" type="Texture" id=1]
 [ext_resource path="res://src/World/Levels/assets/images/ff.png" type="Texture" id=2]
@@ -31,6 +31,9 @@
 [ext_resource path="res://src/Collectables/NectarMovable/NectarMovable.tscn" type="PackedScene" id=29]
 [ext_resource path="res://addons/RigidBodyParticles2D/RigidBodyParticles2D.tscn" type="PackedScene" id=30]
 [ext_resource path="res://src/World/Levels/GUI.gd" type="Script" id=31]
+[ext_resource path="res://src/UI/in_game_menu/Buttopns/QuitButton.tscn" type="PackedScene" id=32]
+[ext_resource path="res://src/UI/in_game_menu/settingsSize64.png" type="Texture" id=33]
+[ext_resource path="res://src/UI/in_game_menu/Buttopns/RestartButton.tscn" type="PackedScene" id=34]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -2066,6 +2069,7 @@ contacts_reported = 5
 contact_monitor = true
 
 [node name="GUI" type="CanvasLayer" parent="."]
+pause_mode = 2
 script = ExtResource( 31 )
 
 [node name="NectarCounter" parent="GUI" instance=ExtResource( 28 )]
@@ -2073,7 +2077,60 @@ margin_left = 166.75
 margin_top = 825.38
 margin_right = 466.75
 margin_bottom = 905.38
+
+[node name="Menu" type="VBoxContainer" parent="GUI"]
+margin_left = 1384.03
+margin_top = 54.2876
+margin_right = 1744.03
+margin_bottom = 408.288
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="TextureButton" parent="GUI/Menu"]
+margin_right = 360.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 33 )
+expand = true
+stretch_mode = 3
+
+[node name="CenterRow" type="HBoxContainer" parent="GUI/Menu"]
+margin_top = 54.0
+margin_right = 360.0
+margin_bottom = 354.0
+rect_min_size = Vector2( 360, 300 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Buttons" type="VBoxContainer" parent="GUI/Menu/CenterRow"]
+margin_right = 360.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 360, 300 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RestartButton" parent="GUI/Menu/CenterRow/Buttons" instance=ExtResource( 34 )]
+pause_mode = 2
+visible = false
+margin_top = 0.0
+margin_right = 360.0
+margin_bottom = 148.0
+rect_min_size = Vector2( 360, 70 )
+flat = true
+
+[node name="QuitButton" parent="GUI/Menu/CenterRow/Buttons" instance=ExtResource( 32 )]
+pause_mode = 2
+visible = false
+margin_top = 0.0
+margin_right = 360.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 360, 70 )
+flat = true
 [connection signal="timeout" from="Enemy/EnemyChangePathTimer" to="Enemy" method="_on_EnemyChangePathTimer_timeout"]
 [connection signal="pressed" from="End/PlayAgain" to="." method="_on_PlayAgain_pressed"]
 [connection signal="pressed" from="End/MainMenu" to="." method="_on_MainMenu_pressed"]
 [connection signal="collectNectar" from="CharacterRig" to="GUI" method="_on_CharacterRig_collectNectar"]
+[connection signal="pressed" from="GUI/Menu/Settings" to="GUI" method="_on_Settings_pressed"]
+[connection signal="pressed" from="GUI/Menu/CenterRow/Buttons/RestartButton" to="GUI" method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="GUI/Menu/CenterRow/Buttons/QuitButton" to="GUI" method="_on_QuitButton_pressed"]
