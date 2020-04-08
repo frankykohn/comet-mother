@@ -17,9 +17,9 @@ var soundFxArray = []
 var files = []
 
 onready var player = $AudioStreamPlayer
-onready var health_over = $HealthOver
-onready var health_under = $HealthUnder
-onready var update_tween = $UpdateTween
+onready var health_over = get_node("../GUI/HealthOver")
+onready var health_under = get_node("../GUI/HealthUnder")
+onready var update_tween = get_node("../GUI/UpdateTween")
 
 export (int) var speed = 150
 export (Color) var caution_color = Color.yellow
