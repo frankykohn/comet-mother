@@ -21,19 +21,3 @@ func _on_CharacterRig_collectNectar(value):
 	$NectarCounter/Label.set_text("Nectar: " + str(value))
 
 
-func _on_Settings_pressed():
-	print("pressed settings button")
-	get_tree().paused = not get_tree().paused
-	var buttonRestart = $Menu/CenterRow/Buttons/RestartButton
-	var buttonQuit = $Menu/CenterRow/Buttons/QuitButton
-	buttonRestart.visible = not buttonRestart.visible
-	buttonQuit.visible = not buttonQuit.visible
-
-
-func _on_RestartButton_pressed():
-	get_tree().change_scene("res://src/World/Levels/Gameplay.tscn")
-	get_tree().paused = not get_tree().paused
-
-
-func _on_QuitButton_pressed():
-	get_tree().quit()
