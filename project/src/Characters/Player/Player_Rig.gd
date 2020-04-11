@@ -51,14 +51,14 @@ func _ready():
 	
 	
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:
-	if Input.is_key_pressed(KEY_RIGHT):
+	if Input.is_action_pressed("ui_right"):
 		apply_central_impulse(Vector2.RIGHT * speed)
 		
-	if Input.is_key_pressed(KEY_LEFT):
+	if Input.is_action_pressed("ui_left"):
 		apply_central_impulse(Vector2.LEFT * speed)
-	if Input.is_key_pressed(KEY_UP):
+	if Input.is_action_pressed("ui_up"):
 		apply_central_impulse(Vector2.UP * speed)
-	if Input.is_key_pressed(KEY_DOWN):
+	if Input.is_action_pressed("ui_down"):
 		apply_central_impulse(Vector2.DOWN * speed)
 		
 	if abs(get_linear_velocity().x) > speed or abs(get_linear_velocity().y) > speed:
