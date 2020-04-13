@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://src/UI/MainMenu/assets/startScreen_phase01.png" type="Texture" id=1]
+[ext_resource path="res://startScreen_phase01.png" type="Texture" id=1]
 [ext_resource path="res://src/UI/MainMenu/assets/opening music.wav" type="AudioStream" id=5]
 [ext_resource path="res://src/UI/MainMenu/assets/menu forward.wav" type="AudioStream" id=6]
 [ext_resource path="res://src/UI/MainMenu/TitleScreen.gd" type="Script" id=7]
@@ -8,18 +8,9 @@
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 3.19617
+margin_bottom = 3.19617
 script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BG_Picture" type="TextureRect" parent="."]
-anchor_left = -0.0002189
-anchor_right = 1.00082
-anchor_bottom = 1.0
-margin_top = 2.23242
-margin_bottom = 2.23242
-texture = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -30,29 +21,58 @@ stream = ExtResource( 5 )
 [node name="ButtonPressForward" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 
-[node name="Start" type="Button" parent="."]
-margin_left = 808.58
-margin_top = 346.232
-margin_right = 1089.58
-margin_bottom = 424.232
-flat = true
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+anchor_left = 8.80877e-05
+anchor_top = -0.000156657
+anchor_right = 1.01415
+anchor_bottom = 1.04058
+margin_left = 1.83087
+margin_top = -1.83081
+margin_right = 1.83087
+margin_bottom = -1.83081
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+anchor_left = 0.423
+anchor_top = 0.315
+anchor_right = 0.571
+anchor_bottom = 0.562
+margin_left = 0.395996
+margin_top = 0.209976
+margin_right = 0.491943
+margin_bottom = -0.292023
+grow_horizontal = 0
+grow_vertical = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="About" type="Button" parent="."]
-margin_left = 808.58
-margin_top = 436.232
-margin_right = 1089.58
-margin_bottom = 514.232
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer"]
+margin_right = 288.0
+margin_bottom = 277.0
+
+[node name="Start" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+margin_right = 288.0
+margin_bottom = 89.0
+size_flags_vertical = 3
 flat = true
 
-[node name="Menu" type="Button" parent="."]
-margin_left = 808.58
-margin_top = 526.232
-margin_right = 1089.58
-margin_bottom = 602.232
+[node name="About" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+margin_top = 93.0
+margin_right = 288.0
+margin_bottom = 182.0
+size_flags_vertical = 3
 flat = true
-[connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
-[connection signal="pressed" from="About" to="." method="_on_About_pressed"]
-[connection signal="pressed" from="Menu" to="." method="_on_Menu_pressed"]
+
+[node name="Menu" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+margin_top = 186.0
+margin_right = 288.0
+margin_bottom = 277.0
+size_flags_vertical = 3
+flat = true
+[connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/About" to="." method="_on_About_pressed"]
+[connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/Menu" to="." method="_on_Menu_pressed"]
