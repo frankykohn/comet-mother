@@ -17,9 +17,9 @@ var soundFxArray = []
 var files = []
 
 onready var player = $AudioStreamPlayer
-onready var health_over = $HealthOver
-onready var health_under = $HealthUnder
-onready var update_tween = $UpdateTween
+onready var health_over = get_node("../GUI/HealthOver")
+onready var health_under = get_node("../GUI/HealthUnder")
+onready var update_tween = get_node("../GUI/UpdateTween")
 
 export (int) var speed = 150
 export (Color) var caution_color = Color.yellow
@@ -51,14 +51,14 @@ func _ready():
 	
 	
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:
-	if Input.is_key_pressed(KEY_RIGHT):
+	if Input.is_action_pressed("ui_right"):
 		apply_central_impulse(Vector2.RIGHT * speed)
 		
-	if Input.is_key_pressed(KEY_LEFT):
+	if Input.is_action_pressed("ui_left"):
 		apply_central_impulse(Vector2.LEFT * speed)
-	if Input.is_key_pressed(KEY_UP):
+	if Input.is_action_pressed("ui_up"):
 		apply_central_impulse(Vector2.UP * speed)
-	if Input.is_key_pressed(KEY_DOWN):
+	if Input.is_action_pressed("ui_down"):
 		apply_central_impulse(Vector2.DOWN * speed)
 		
 	if abs(get_linear_velocity().x) > speed or abs(get_linear_velocity().y) > speed:
