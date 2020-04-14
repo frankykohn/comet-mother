@@ -18,4 +18,4 @@ func _on_About_pressed():
 func _on_Menu_pressed():
 	$OpeningMusic.stop()
 	$ButtonPressForward.play()
-	get_tree().change_scene("res://src/UI/MainMenu/CreditsScreen.tscn")
+	get_tree().change_scene("res://src/UI/StarMap/StarMap.tscn")

@@ -22,13 +22,13 @@ stream = ExtResource( 5 )
 stream = ExtResource( 6 )
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-anchor_left = 8.80877e-05
+anchor_left = 0.000300504
 anchor_top = -0.000156657
-anchor_right = 1.01415
-anchor_bottom = 1.04058
-margin_left = 1.83087
+anchor_right = 0.998217
+anchor_bottom = 0.997066
+margin_left = 4.42303
 margin_top = -1.83081
-margin_right = 1.83087
+margin_right = 4.42297
 margin_bottom = -1.83081
 texture = ExtResource( 1 )
 __meta__ = {
@@ -51,26 +51,26 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer"]
-margin_right = 288.0
-margin_bottom = 277.0
+margin_right = 283.0
+margin_bottom = 265.0
 
 [node name="Start" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer"]
-margin_right = 288.0
-margin_bottom = 89.0
+margin_right = 283.0
+margin_bottom = 85.0
 size_flags_vertical = 3
 flat = true
 
 [node name="About" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer"]
-margin_top = 93.0
-margin_right = 288.0
-margin_bottom = 182.0
+margin_top = 89.0
+margin_right = 283.0
+margin_bottom = 174.0
 size_flags_vertical = 3
 flat = true
 
 [node name="Menu" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer"]
-margin_top = 186.0
-margin_right = 288.0
-margin_bottom = 277.0
+margin_top = 178.0
+margin_right = 283.0
+margin_bottom = 265.0
 size_flags_vertical = 3
 flat = true
 [connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/Start" to="." method="_on_Start_pressed"]
