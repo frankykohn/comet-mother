@@ -9,7 +9,7 @@ func _on_StartButton_pressed():
 
 func	 _on_Back_pressed():
 	MenuBackAudio.play()
-	get_tree().change_scene("res://src/UI/MainMenu/MenuScreen.tscn")
+	get_tree().change_scene("res://src/UI/MainMenu/TitleScreen.tscn")
 
 
 func _on_AboutButton_pressed():

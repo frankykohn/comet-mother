@@ -1,0 +1,206 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://src/UI/StarMap/Assets/planetSquare.png" type="Texture" id=1]
+[ext_resource path="res://src/UI/StarMap/Assets/pasted image 0.png" type="Texture" id=2]
+[ext_resource path="res://src/UI/StarMap/Assets/DailyMenuPage.png" type="Texture" id=3]
+[ext_resource path="res://src/UI/StarMap/StarMap.gd" type="Script" id=4]
+[ext_resource path="res://src/UI/StarMap/Assets/planetCircle.png" type="Texture" id=5]
+[ext_resource path="res://src/UI/StarMap/Assets/planetTriangle.png" type="Texture" id=6]
+[ext_resource path="res://src/UI/StarMap/Assets/star-map.wav" type="AudioStream" id=7]
+[ext_resource path="res://src/UI/Fonts/teko-regular.otf" type="DynamicFontData" id=8]
+[ext_resource path="res://src/UI/MainMenu/assets/menu back.wav" type="AudioStream" id=9]
+[ext_resource path="res://src/UI/MainMenu/assets/menu forward.wav" type="AudioStream" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 115
+font_data = ExtResource( 8 )
+
+[node name="StarMap" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 1552.01 ]
+}
+
+[node name="GalaxyPicture" type="NinePatchRect" parent="."]
+anchor_left = -0.0333333
+anchor_top = 0.00338593
+anchor_right = 0.99469
+anchor_bottom = 0.998003
+margin_top = 2.3432
+margin_right = -0.804565
+margin_bottom = 0.157227
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="RedPlanetConainert" type="MarginContainer" parent="GalaxyPicture"]
+anchor_left = 0.400968
+anchor_top = 0.277881
+anchor_right = 0.421758
+anchor_bottom = 0.314713
+margin_left = 5.53796
+margin_top = -1.99957
+margin_right = 165.621
+margin_bottom = 158.369
+rect_scale = Vector2( 0.2, 0.2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GalaxyPicture/RedPlanetConainert"]
+margin_right = 201.0
+margin_bottom = 199.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SquarePlanet" type="TextureButton" parent="GalaxyPicture/RedPlanetConainert/VBoxContainer"]
+margin_right = 201.0
+margin_bottom = 199.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GreenPlanet" type="MarginContainer" parent="GalaxyPicture"]
+anchor_left = 0.403836
+anchor_top = 0.746045
+anchor_right = 0.424574
+anchor_bottom = 0.783499
+margin_right = 160.183
+margin_bottom = 160.0
+rect_scale = Vector2( 0.2, 0.2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GalaxyPicture/GreenPlanet"]
+margin_right = 201.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CirclePlanet" type="TextureButton" parent="GalaxyPicture/GreenPlanet/VBoxContainer"]
+margin_right = 201.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OrangePlanet" type="MarginContainer" parent="GalaxyPicture"]
+anchor_left = 0.816207
+anchor_top = 0.746045
+anchor_right = 0.836825
+anchor_bottom = 0.783668
+margin_right = 160.0
+margin_bottom = 159.82
+rect_scale = Vector2( 0.2, 0.2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GalaxyPicture/OrangePlanet"]
+margin_right = 200.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TrianglePlanet" type="TextureButton" parent="GalaxyPicture/OrangePlanet/VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FoodMenuContainer" type="MarginContainer" parent="GalaxyPicture"]
+visible = false
+anchor_left = 0.74
+anchor_top = 0.034
+anchor_right = 0.946
+anchor_bottom = 0.559
+margin_left = -0.23999
+margin_top = 0.109997
+margin_right = 171.004
+margin_bottom = 243.485
+rect_scale = Vector2( 0.7, 0.7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GalaxyPicture/FoodMenuContainer"]
+margin_right = 577.0
+margin_bottom = 806.0
+
+[node name="stats" type="TextureButton" parent="GalaxyPicture/FoodMenuContainer/VBoxContainer"]
+margin_right = 564.0
+margin_bottom = 806.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 3 )
+expand = true
+
+[node name="StartContainer" type="MarginContainer" parent="GalaxyPicture"]
+anchor_left = 0.115
+anchor_top = 0.815
+anchor_right = 0.335
+anchor_bottom = 0.945
+margin_left = -0.490585
+margin_top = 0.0982056
+margin_right = 181.197
+margin_bottom = 60.7887
+rect_scale = Vector2( 0.7, 0.7 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GalaxyPicture/StartContainer"]
+margin_right = 615.0
+margin_bottom = 200.0
+
+[node name="start" type="Button" parent="GalaxyPicture/StartContainer/HBoxContainer"]
+margin_right = 615.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="GalaxyPicture/StartContainer/HBoxContainer/start"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 125.0
+custom_fonts/font = SubResource( 1 )
+text = "Start
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StarMapAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[node name="BackAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="ForwardAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+[connection signal="pressed" from="GalaxyPicture/RedPlanetConainert/VBoxContainer/SquarePlanet" to="." method="_on_SquarePlanet_pressed"]
+[connection signal="pressed" from="GalaxyPicture/GreenPlanet/VBoxContainer/CirclePlanet" to="." method="_on_CirclePlanet_pressed"]
+[connection signal="pressed" from="GalaxyPicture/OrangePlanet/VBoxContainer/TrianglePlanet" to="." method="_on_TrianglePlanet_pressed"]
+[connection signal="pressed" from="GalaxyPicture/FoodMenuContainer/VBoxContainer/stats" to="." method="_on_stats_pressed"]
+[connection signal="pressed" from="GalaxyPicture/StartContainer/HBoxContainer/start" to="." method="_on_start_pressed"]

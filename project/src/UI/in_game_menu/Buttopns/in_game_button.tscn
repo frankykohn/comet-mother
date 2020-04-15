@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/UI/Fonts/teko-regular.otf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 1 )
+
+[node name="Buttons" type="VBoxContainer"]
+margin_right = 348.0
+margin_bottom = 196.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuButton" type="Button" parent="."]
+margin_right = 348.0
+margin_bottom = 20.0
+flat = true
+
+[node name="Label" type="Label" parent="MenuButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 25.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0.0941176, 0.996078, 0.0431373, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 5
+text = "Label
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

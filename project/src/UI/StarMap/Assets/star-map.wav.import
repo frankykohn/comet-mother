@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/star-map.wav-5782c2af6258b276daf9dac60f59a76a.sample"
+
+[deps]
+
+source_file="res://src/UI/StarMap/Assets/star-map.wav"
+dest_files=[ "res://.import/star-map.wav-5782c2af6258b276daf9dac60f59a76a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

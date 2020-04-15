@@ -1,10 +1,9 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/UI/MainMenu/return_to_title.gd" type="Script" id=1]
-[ext_resource path="res://Assets/fonts/Teko-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Assets/images/env/Level_ExtremeBackground_01.png" type="Texture" id=3]
+[ext_resource path="res://src/UI/Fonts/teko-regular.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://src/World/Levels/assets/images/Level_ExtremeBackground_01.png" type="Texture" id=3]
 [ext_resource path="res://src/UI/Fonts/Teko-Regular.ttf" type="DynamicFontData" id=4]
-
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
@@ -53,7 +52,7 @@ align = 1
 [node name="Description" type="Label" parent="VBoxContainer"]
 margin_top = 91.0
 margin_right = 1800.0
-margin_bottom = 188.0
+margin_bottom = 186.0
 custom_fonts/font = SubResource( 2 )
 text = "The hive has been on a long journey to a faraway asteroid belt to harvest a magical nectar that might heal their polluted planet. On their return journey hive mothership is hit by flying space debris and attacked by swarms of foul, haunting beings which emerge from the asteroid belt."
 align = 1
@@ -63,9 +62,9 @@ __meta__ = {
 }
 
 [node name="Description2" type="Label" parent="VBoxContainer"]
-margin_top = 192.0
+margin_top = 190.0
 margin_right = 1800.0
-margin_bottom = 339.0
+margin_bottom = 334.0
 custom_fonts/font = SubResource( 2 )
 text = "W - Up
 A - Left        D -Right
@@ -77,9 +76,9 @@ __meta__ = {
 }
 
 [node name="Back" type="Button" parent="VBoxContainer"]
-margin_top = 343.0
+margin_top = 338.0
 margin_right = 1800.0
-margin_bottom = 418.0
+margin_bottom = 413.0
 custom_fonts/font = SubResource( 3 )
 text = "Back"
 [connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_Back_pressed"]
